@@ -1,7 +1,14 @@
+'use client';
+
 import { contact } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Mail } from 'lucide-react';
+import { Mail, Github, Linkedin } from 'lucide-react';
+
+const icons: { [key: string]: React.ElementType } = {
+    github: Github,
+    linkedin: Linkedin,
+};
 
 export default function Contact() {
     return (
@@ -12,13 +19,17 @@ export default function Contact() {
                     I'm currently open to new opportunities and collaborations. If you have a project in mind or just want to connect, feel free to reach out.
                 </p>
                 <div className="flex justify-center gap-4 mb-8">
-                    {contact.socials.map(social => (
-                        <Button asChild key={social.name} variant="outline" size="icon" className="bg-transparent border-white/20 hover:bg-white/10 hover:text-white rounded-full">
-                            <Link href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name}>
-                                <social.icon className="w-5 h-5"/>
-                            </Link>
-                        </Button>
-                    ))}
+                    {contact.socials.map(social => {
+                        const Icon = icons[social.icon];
+                        if (!Icon) return null;
+                        return (
+                            <Button asChild key={social.name} variant="outline" size="icon" className="bg-transparent border-white/20 hover:bg-white/10 hover:text-white rounded-full">
+                                <Link href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name}>
+                                    <Icon className="w-5 h-5"/>
+                                </Link>
+                            </Button>
+                        )
+                    })}
                 </div>
                 <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-base px-8 py-6 rounded-full">
                     <a href={`mailto:${contact.email}`}>

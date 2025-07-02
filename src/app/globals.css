@@ -130,6 +130,26 @@
   animation: move-background 150s linear infinite, twinkle 5s infinite ease-in-out;
 }
 
+@keyframes star-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 12px 4px rgba(255, 255, 255, 0.7);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.9);
+  }
+}
+
+@keyframes line-draw {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 
 @layer utilities {
   .bg-accent-gradient {
@@ -152,5 +172,13 @@
 
   .text-glow {
     text-shadow: 0 0 8px hsl(var(--accent) / 0.5), 0 0 20px hsl(var(--secondary) / 0.5);
+  }
+
+  .animate-star-pulse {
+    animation: star-pulse 4s ease-in-out infinite;
+  }
+  .animate-line-draw {
+    stroke-dasharray: 1000;
+    animation: line-draw 5s ease-out forwards;
   }
 }

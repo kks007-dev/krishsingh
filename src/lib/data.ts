@@ -1,5 +1,3 @@
-import { Github, Linkedin, ExternalLink, Mail } from "lucide-react";
-
 export const portfolio = {
   work: [
     {
@@ -8,8 +6,8 @@ export const portfolio = {
       image: "https://placehold.co/600x400.png",
       tags: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Tailwind CSS"],
       links: [
-        { icon: Github, url: "#" },
-        { icon: ExternalLink, url: "#" },
+        { icon: "github", url: "#" },
+        { icon: "external-link", url: "#" },
       ],
       aiHint: "online store",
     },
@@ -19,8 +17,8 @@ export const portfolio = {
       image: "https://placehold.co/600x400.png",
       tags: ["Next.js", "D3.js", "TypeScript", "PostgreSQL"],
       links: [
-        { icon: Github, url: "#" },
-        { icon: ExternalLink, url: "#" },
+        { icon: "github", url: "#" },
+        { icon: "external-link", url: "#" },
       ],
       aiHint: "charts graphs",
     },
@@ -30,8 +28,8 @@ export const portfolio = {
         image: "https://placehold.co/600x400.png",
         tags: ["React Native", "Firebase", "GraphQL"],
         links: [
-          { icon: Github, url: "#" },
-          { icon: ExternalLink, url: "#" },
+          { icon: "github", url: "#" },
+          { icon: "external-link", url: "#" },
         ],
         aiHint: "social media",
       },
@@ -42,7 +40,7 @@ export const portfolio = {
       description: "The very portfolio you're exploring now! An open-source project to generate beautiful constellation-based websites with a touch of AI magic.",
       image: "https://placehold.co/600x400.png",
       tags: ["Next.js", "Tailwind CSS", "GenAI", "TypeScript"],
-      links: [{ icon: Github, url: "#" }],
+      links: [{ icon: "github", url: "#" }],
       aiHint: "stars code",
     },
     {
@@ -50,7 +48,7 @@ export const portfolio = {
         description: "A custom-designed set of minimalistic line icons for web developers, focusing on clarity and consistency across different sizes.",
         image: "https://placehold.co/600x400.png",
         tags: ["Figma", "SVG", "Design System"],
-        links: [{ icon: Github, url: "#" }],
+        links: [{ icon: "github", url: "#" }],
         aiHint: "icons design",
       },
   ],
@@ -85,8 +83,8 @@ export const resume = {
 
 export const contact = {
     socials: [
-        { icon: Github, url: "https://github.com", name: "GitHub"},
-        { icon: Linkedin, url: "https://linkedin.com", name: "LinkedIn"},
+        { icon: "github", url: "https://github.com", name: "GitHub"},
+        { icon: "linkedin", url: "https://linkedin.com", name: "LinkedIn"},
     ],
     email: "hello@cosmiccanvas.dev"
 }
