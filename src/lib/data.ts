@@ -1,4 +1,4 @@
-import { Github, Linkedin, Link as LinkIcon, Mail } from "lucide-react";
+import { Github, Linkedin, ExternalLink, Mail } from "lucide-react";
 
 export const portfolio = {
   work: [
@@ -9,18 +9,18 @@ export const portfolio = {
       tags: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Tailwind CSS"],
       links: [
         { icon: Github, url: "#" },
-        { icon: LinkIcon, url: "#" },
+        { icon: ExternalLink, url: "#" },
       ],
       aiHint: "online store",
     },
     {
-      title: "DataSphere Analytics Dashboard",
+      title: "DataSphere Analytics",
       description: "An interactive data visualization dashboard for a SaaS product, providing users with real-time insights and customizable reports.",
       image: "https://placehold.co/600x400.png",
       tags: ["Next.js", "D3.js", "TypeScript", "PostgreSQL"],
       links: [
         { icon: Github, url: "#" },
-        { icon: LinkIcon, url: "#" },
+        { icon: ExternalLink, url: "#" },
       ],
       aiHint: "charts graphs",
     },
@@ -31,14 +31,14 @@ export const portfolio = {
         tags: ["React Native", "Firebase", "GraphQL"],
         links: [
           { icon: Github, url: "#" },
-          { icon: LinkIcon, url: "#" },
+          { icon: ExternalLink, url: "#" },
         ],
         aiHint: "social media",
       },
   ],
   passion: [
     {
-      title: "Cosmic Canvas Portfolio",
+      title: "This Cosmic Canvas",
       description: "The very portfolio you're exploring now! An open-source project to generate beautiful constellation-based websites with a touch of AI magic.",
       image: "https://placehold.co/600x400.png",
       tags: ["Next.js", "Tailwind CSS", "GenAI", "TypeScript"],
@@ -46,7 +46,7 @@ export const portfolio = {
       aiHint: "stars code",
     },
     {
-        title: "PixelPerfect Icon Set",
+        title: "PixelPerfect Icons",
         description: "A custom-designed set of minimalistic line icons for web developers, focusing on clarity and consistency across different sizes.",
         image: "https://placehold.co/600x400.png",
         tags: ["Figma", "SVG", "Design System"],
