@@ -133,11 +133,11 @@
 @keyframes star-pulse {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 0 12px 4px rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5);
   }
   50% {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.9);
+    transform: scale(1.05);
+    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.6);
   }
 }
 

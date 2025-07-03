@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/tooltip';
 import React from 'react';
 import { Github, ExternalLink } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 type Project = (typeof portfolio.work)[0];
 
@@ -22,22 +23,25 @@ const icons: { [key: string]: React.ElementType } = {
 
 type ConstellationName = 'orion' | 'andromeda';
 
+type ConstellationPosition = { x: string; y: string; className?: string };
+
 const predefinedConstellations: Record<
   ConstellationName,
-  { positions: { x: string; y: string }[]; edges: number[][] }
+  { positions: ConstellationPosition[]; edges: number[][] }
 > = {
   orion: {
     positions: [
-      { x: '35%', y: '48%' }, // Project 1 (Alnitak)
+      { x: '45%', y: '52%' }, // Project 1 (Alnitak)
       { x: '50%', y: '50%' }, // Project 2 (Alnilam)
-      { x: '65%', y: '52%' }, // Project 3 (Mintaka)
-      { x: '20%', y: '15%' }, // Betelgeuse
+      { x: '55%', y: '48%' }, // Project 3 (Mintaka)
+      { x: '20%', y: '15%', className: 'bg-red-400' }, // Betelgeuse
       { x: '80%', y: '20%' }, // Bellatrix
-      { x: '25%', y: '85%' }, // Saiph
-      { x: '75%', y: '90%' }, // Rigel
+      { x: '22%', y: '88%' }, // Saiph
+      { x: '78%', y: '90%', className: 'bg-blue-300' }, // Rigel
     ],
     edges: [
-      [3, 1], // Betelgeuse to Alnilam
+      [3, 4], // Betelgeuse to Bellatrix (shoulders)
+      [3, 1], // Betelgeuse to Alnilam (center of belt)
       [4, 1], // Bellatrix to Alnilam
       [0, 1], // Alnitak to Alnilam
       [1, 2], // Alnilam to Mintaka
@@ -47,19 +51,19 @@ const predefinedConstellations: Record<
   },
   andromeda: {
     positions: [
-      { x: '20%', y: '70%' }, // Project 1
-      { x: '45%', y: '55%' }, // Project 2
-      { x: '70%', y: '40%' },
-      { x: '90%', y: '20%' },
+      { x: '10%', y: '80%' }, // Project 1
+      { x: '35%', y: '60%' }, // Project 2
+      { x: '65%', y: '40%' },
+      { x: '90%', y: '25%' },
     ],
     edges: [[0, 1], [1, 2], [2, 3]],
   },
 };
 
 const ProjectTooltipContent = ({ project }: { project: Project }) => (
-  <div className="glass-card w-64 max-w-xs overflow-hidden p-0">
+  <div className="glass-card w-48 max-w-xs overflow-hidden p-0">
     <div className="p-4">
-      <h3 className="text-lg font-bold font-headline mb-1 text-glow">{project.title}</h3>
+      <h3 className="text-base font-bold font-headline mb-1 text-glow">{project.title}</h3>
       <p className="text-muted-foreground text-xs mb-3 h-16 overflow-auto">{project.description}</p>
       <div className="flex flex-wrap gap-1 mb-3">
         {project.tags.map(tag => (
@@ -82,8 +86,8 @@ const ProjectTooltipContent = ({ project }: { project: Project }) => (
       <Image
         src={project.image}
         alt={project.title}
-        width={256}
-        height={144}
+        width={192}
+        height={108}
         className="w-full h-full object-cover"
         data-ai-hint={project.aiHint}
       />
@@ -91,17 +95,17 @@ const ProjectTooltipContent = ({ project }: { project: Project }) => (
   </div>
 );
 
-const Star = ({ project, position }: { project: Project; position: { x: string; y: string } }) => (
+const Star = ({ project, position }: { project: Project; position: ConstellationPosition }) => (
   <Tooltip delayDuration={100}>
     <TooltipTrigger asChild>
       <div
         className="absolute animate-star-pulse"
         style={{ left: position.x, top: position.y, transform: 'translate(-50%, -50%)' }}
       >
-        <div className="w-3 h-3 rounded-full bg-white shadow-[0_0_8px_2px_rgba(255,255,255,0.6)] cursor-pointer transition-all duration-300 hover:scale-125"></div>
+        <div className={cn("w-3 h-3 rounded-full bg-white shadow-[0_0_4px_1px_rgba(255,255,255,0.5)] cursor-pointer transition-all duration-300 hover:scale-125", position.className)}></div>
       </div>
     </TooltipTrigger>
-    <TooltipContent className="bg-transparent border-none p-0 shadow-none w-48">
+    <TooltipContent className="bg-transparent border-none p-0 shadow-none">
       <ProjectTooltipContent project={project} />
     </TooltipContent>
   </Tooltip>
@@ -140,21 +144,24 @@ export default function ConstellationDisplay({ projects, name }: { projects: Pro
                 />
              )
           })}
-           {/* Render non-interactive stars for points that don't have projects */}
-           {positions.slice(projects.length).map((position, index) => (
-             <circle 
-                key={`bg-star-${index}`}
-                cx={position.x}
-                cy={position.y}
-                r="2"
-                fill="rgba(255, 255, 255, 0.4)"
-              />
-           ))}
         </svg>
+
+        {/* Render interactive project stars */}
         {projects.map((project, index) => {
             if (!positions[index]) return null;
-            return <Star key={index} project={project} position={positions[index]} />
+            return <Star key={project.title} project={project} position={positions[index]} />
         })}
+
+        {/* Render non-interactive background stars */}
+        {positions.slice(projects.length).map((position, index) => (
+          <div
+            key={`bg-star-${index}`}
+            className="absolute animate-star-pulse"
+            style={{ left: position.x, top: position.y, transform: 'translate(-50%, -50%)' }}
+          >
+            <div className={cn("w-2 h-2 rounded-full bg-white/70 shadow-[0_0_4px_1px_rgba(255,255,255,0.3)]", position.className)}></div>
+          </div>
+        ))}
       </div>
     </TooltipProvider>
   );
