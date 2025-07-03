@@ -20,52 +20,41 @@ const icons: { [key: string]: React.ElementType } = {
   'external-link': ExternalLink,
 };
 
-const constellationLayouts: { [key: number]: { positions: { x: string; y: string }[], edges: number[][] } } = {
-  2: { 
+type ConstellationName = 'orion' | 'andromeda';
+
+const predefinedConstellations: Record<
+  ConstellationName,
+  { positions: { x: string; y: string }[]; edges: number[][] }
+> = {
+  orion: {
     positions: [
-      { x: '30%', y: '50%' },
-      { x: '70%', y: '50%' },
+      { x: '35%', y: '48%' }, // Project 1 (Alnitak)
+      { x: '50%', y: '50%' }, // Project 2 (Alnilam)
+      { x: '65%', y: '52%' }, // Project 3 (Mintaka)
+      { x: '20%', y: '15%' }, // Betelgeuse
+      { x: '80%', y: '20%' }, // Bellatrix
+      { x: '25%', y: '85%' }, // Saiph
+      { x: '75%', y: '90%' }, // Rigel
     ],
-    edges: [[0, 1]],
+    edges: [
+      [3, 1], // Betelgeuse to Alnilam
+      [4, 1], // Bellatrix to Alnilam
+      [0, 1], // Alnitak to Alnilam
+      [1, 2], // Alnilam to Mintaka
+      [0, 5], // Alnitak to Saiph
+      [2, 6], // Mintaka to Rigel
+    ],
   },
-  3: {
+  andromeda: {
     positions: [
-      { x: '50%', y: '25%' },
-      { x: '25%', y: '75%' },
-      { x: '75%', y: '75%' },
+      { x: '20%', y: '70%' }, // Project 1
+      { x: '45%', y: '55%' }, // Project 2
+      { x: '70%', y: '40%' },
+      { x: '90%', y: '20%' },
     ],
-    edges: [[0, 1], [1, 2], [2, 0]],
-  },
-  4: {
-    positions: [
-      { x: '50%', y: '15%' },
-      { x: '20%', y: '45%' },
-      { x: '80%', y: '45%' },
-      { x: '50%', y: '85%' },
-    ],
-    edges: [[0, 1], [0, 2], [1, 3], [2, 3]],
-  },
-  5: {
-    positions: [
-      { x: '15%', y: '30%' },
-      { x: '35%', y: '60%' },
-      { x: '55%', y: '35%' },
-      { x: '75%', y: '65%' },
-      { x: '95%', y: '30%' },
-    ],
-    edges: [[0, 1], [1, 2], [2, 3], [3, 4]],
+    edges: [[0, 1], [1, 2], [2, 3]],
   },
 };
-
-const getConstellationLayout = (numProjects: number) => {
-    const key = Math.min(numProjects, 5);
-    if (key < 2) return { positions: [], edges: [] };
-    
-    let layout = constellationLayouts[key];
-    
-    return layout;
-}
-
 
 const ProjectTooltipContent = ({ project }: { project: Project }) => (
   <div className="glass-card w-64 max-w-xs overflow-hidden p-0">
@@ -112,17 +101,17 @@ const Star = ({ project, position }: { project: Project; position: { x: string; 
         <div className="w-3 h-3 rounded-full bg-white shadow-[0_0_8px_2px_rgba(255,255,255,0.6)] cursor-pointer transition-all duration-300 hover:scale-125"></div>
       </div>
     </TooltipTrigger>
-    <TooltipContent className="bg-transparent border-none p-0 shadow-none">
+    <TooltipContent className="bg-transparent border-none p-0 shadow-none w-48">
       <ProjectTooltipContent project={project} />
     </TooltipContent>
   </Tooltip>
 );
 
-export default function ConstellationDisplay({ projects }: { projects: Project[] }) {
-  const { positions, edges } = getConstellationLayout(projects.length);
+export default function ConstellationDisplay({ projects, name }: { projects: Project[]; name: ConstellationName }) {
+  const { positions, edges } = predefinedConstellations[name];
   
   if (!positions || !edges) {
-    return <div className="text-center text-muted-foreground">Not enough projects to form a constellation.</div>
+    return <div className="text-center text-muted-foreground">Could not find constellation data.</div>
   }
 
   return (
@@ -131,8 +120,8 @@ export default function ConstellationDisplay({ projects }: { projects: Project[]
         <svg className="absolute top-0 left-0 w-full h-full" style={{ zIndex: -1 }}>
           <defs>
             <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 0.5 }} />
-              <stop offset="100%" style={{ stopColor: 'hsl(var(--secondary))', stopOpacity: 0.5 }} />
+              <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 0.3 }} />
+              <stop offset="100%" style={{ stopColor: 'hsl(var(--secondary))', stopOpacity: 0.3 }} />
             </linearGradient>
           </defs>
           {edges.map(([startIdx, endIdx], i) => {
@@ -145,16 +134,27 @@ export default function ConstellationDisplay({ projects }: { projects: Project[]
                   x2={positions[endIdx].x}
                   y2={positions[endIdx].y}
                   stroke="url(#line-gradient)"
-                  strokeWidth="1.5"
+                  strokeWidth="1"
                   className="animate-line-draw"
                   style={{ animationDelay: `${i * 0.2}s` }}
                 />
              )
           })}
+           {/* Render non-interactive stars for points that don't have projects */}
+           {positions.slice(projects.length).map((position, index) => (
+             <circle 
+                key={`bg-star-${index}`}
+                cx={position.x}
+                cy={position.y}
+                r="2"
+                fill="rgba(255, 255, 255, 0.4)"
+              />
+           ))}
         </svg>
-        {projects.slice(0, positions.length).map((project, index) => (
-          <Star key={index} project={project} position={positions[index]} />
-        ))}
+        {projects.map((project, index) => {
+            if (!positions[index]) return null;
+            return <Star key={index} project={project} position={positions[index]} />
+        })}
       </div>
     </TooltipProvider>
   );

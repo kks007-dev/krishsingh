@@ -9,16 +9,16 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="py-20 px-4 container">
       <SectionTitle>
-        Work Constellation
+        Experience Constellation
       </SectionTitle>
-      <ConstellationDisplay projects={portfolio.work} />
+      <ConstellationDisplay projects={portfolio.work} name="orion" />
 
       <div className="py-20" />
 
       <SectionTitle>
-        Passion Nebula
+        Passion Constellation
       </SectionTitle>
-      <ConstellationDisplay projects={portfolio.passion} />
+      <ConstellationDisplay projects={portfolio.passion} name="andromeda" />
     </section>
   );
 }
