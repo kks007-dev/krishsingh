@@ -37,7 +37,7 @@ export default function Contact() {
                         Say Hello
                     </a>
                 </Button>
-                <p className="mt-16 text-sm text-primary-foreground/50">&copy; {new Date().getFullYear()} Cosmic Canvas. All Rights Reserved.</p>
+                <p className="mt-16 text-sm text-primary-foreground/50">&copy; {new Date().getFullYear()} Krish Singh. All Rights Reserved.</p>
             </div>
         </section>
     );

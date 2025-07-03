@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Cosmic Canvas',
+  title: 'Krish Singh',
   description: 'Forging digital constellations from code.',
 };
 

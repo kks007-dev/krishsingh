@@ -36,7 +36,7 @@ export const portfolio = {
   ],
   passion: [
     {
-      title: "This Cosmic Canvas",
+      title: "Personal Portfolio Website",
       description: "The very portfolio you're exploring now! An open-source project to generate beautiful constellation-based websites with a touch of AI magic.",
       image: "https://placehold.co/600x400.png",
       tags: ["Next.js", "Tailwind CSS", "GenAI", "TypeScript"],
@@ -86,5 +86,5 @@ export const contact = {
         { icon: "github", url: "https://github.com", name: "GitHub"},
         { icon: "linkedin", url: "https://linkedin.com", name: "LinkedIn"},
     ],
-    email: "hello@cosmiccanvas.dev"
+    email: "hello@krishsingh.dev"
 }

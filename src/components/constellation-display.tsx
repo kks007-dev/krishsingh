@@ -15,36 +15,75 @@ import { Github, ExternalLink } from 'lucide-react';
 
 type Project = (typeof portfolio.work)[0];
 
-const starPositions = [
-  { x: '15%', y: '20%' },
-  { x: '85%', y: '20%' },
-  { x: '50%', y: '50%' },
-  { x: '25%', y: '80%' },
-  { x: '75%', y: '80%' },
-];
-
 const icons: { [key: string]: React.ElementType } = {
   github: Github,
   'external-link': ExternalLink,
 };
 
+const constellationLayouts: { [key: number]: { positions: { x: string; y: string }[], edges: number[][] } } = {
+  2: { 
+    positions: [
+      { x: '30%', y: '50%' },
+      { x: '70%', y: '50%' },
+    ],
+    edges: [[0, 1]],
+  },
+  3: {
+    positions: [
+      { x: '50%', y: '25%' },
+      { x: '25%', y: '75%' },
+      { x: '75%', y: '75%' },
+    ],
+    edges: [[0, 1], [1, 2], [2, 0]],
+  },
+  4: {
+    positions: [
+      { x: '50%', y: '15%' },
+      { x: '20%', y: '45%' },
+      { x: '80%', y: '45%' },
+      { x: '50%', y: '85%' },
+    ],
+    edges: [[0, 1], [0, 2], [1, 3], [2, 3]],
+  },
+  5: {
+    positions: [
+      { x: '15%', y: '30%' },
+      { x: '35%', y: '60%' },
+      { x: '55%', y: '35%' },
+      { x: '75%', y: '65%' },
+      { x: '95%', y: '30%' },
+    ],
+    edges: [[0, 1], [1, 2], [2, 3], [3, 4]],
+  },
+};
+
+const getConstellationLayout = (numProjects: number) => {
+    const key = Math.min(numProjects, 5);
+    if (key < 2) return { positions: [], edges: [] };
+    
+    let layout = constellationLayouts[key];
+    
+    return layout;
+}
+
+
 const ProjectTooltipContent = ({ project }: { project: Project }) => (
-  <div className="glass-card w-80 max-w-sm overflow-hidden p-0">
-    <div className="p-6">
-      <h3 className="text-xl font-bold font-headline mb-2 text-glow">{project.title}</h3>
-      <p className="text-muted-foreground text-sm mb-4 h-20 overflow-auto">{project.description}</p>
-      <div className="flex flex-wrap gap-2 mb-4">
+  <div className="glass-card w-64 max-w-xs overflow-hidden p-0">
+    <div className="p-4">
+      <h3 className="text-lg font-bold font-headline mb-1 text-glow">{project.title}</h3>
+      <p className="text-muted-foreground text-xs mb-3 h-16 overflow-auto">{project.description}</p>
+      <div className="flex flex-wrap gap-1 mb-3">
         {project.tags.map(tag => (
-          <Badge key={tag} variant="outline" className="border-accent/50 text-accent bg-accent/10 backdrop-blur-sm">{tag}</Badge>
+          <Badge key={tag} variant="outline" className="text-xs border-accent/50 text-accent bg-accent/10 backdrop-blur-sm">{tag}</Badge>
         ))}
       </div>
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-3 items-center">
         {project.links.map((link, index) => {
           const Icon = icons[link.icon];
           if (!Icon) return null;
           return (
             <Link href={link.url} key={index} target="_blank" rel="noopener noreferrer" className="text-accent/80 hover:text-accent transition-colors flex items-center gap-2">
-              <Icon className="w-5 h-5" />
+              <Icon className="w-4 h-4" />
             </Link>
           )
         })}
@@ -54,8 +93,8 @@ const ProjectTooltipContent = ({ project }: { project: Project }) => (
       <Image
         src={project.image}
         alt={project.title}
-        width={320}
-        height={180}
+        width={256}
+        height={144}
         className="w-full h-full object-cover"
         data-ai-hint={project.aiHint}
       />
@@ -70,7 +109,7 @@ const Star = ({ project, position }: { project: Project; position: { x: string; 
         className="absolute animate-star-pulse"
         style={{ left: position.x, top: position.y, transform: 'translate(-50%, -50%)' }}
       >
-        <div className="w-4 h-4 rounded-full bg-white shadow-[0_0_12px_4px_rgba(255,255,255,0.7)] cursor-pointer transition-all duration-300 hover:scale-125"></div>
+        <div className="w-3 h-3 rounded-full bg-white shadow-[0_0_8px_2px_rgba(255,255,255,0.6)] cursor-pointer transition-all duration-300 hover:scale-125"></div>
       </div>
     </TooltipTrigger>
     <TooltipContent className="bg-transparent border-none p-0 shadow-none">
@@ -80,21 +119,11 @@ const Star = ({ project, position }: { project: Project; position: { x: string; 
 );
 
 export default function ConstellationDisplay({ projects }: { projects: Project[] }) {
-  const positions = projects.slice(0, starPositions.length).map((_, i) => starPositions[i]);
-
-  const getEdges = (numProjects: number) => {
-    if (numProjects < 2) return [];
-    const edges = [];
-    for (let i = 0; i < numProjects - 1; i++) {
-        edges.push([i, i + 1]);
-    }
-    if (numProjects > 2) {
-        edges.push([numProjects-1, 0]);
-    }
-    return edges;
-  };
-
-  const edges = getEdges(projects.length);
+  const { positions, edges } = getConstellationLayout(projects.length);
+  
+  if (!positions || !edges) {
+    return <div className="text-center text-muted-foreground">Not enough projects to form a constellation.</div>
+  }
 
   return (
     <TooltipProvider>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Rocket, Briefcase, GraduationCap, Lightbulb, Mail } from "lucide-react";
+import { Menu, X, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -34,7 +34,7 @@ export default function Header() {
         <div className="mr-4 flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Rocket className="h-6 w-6 text-gradient-accent bg-accent-gradient" />
-            <span className="font-bold font-headline text-lg">Cosmic Canvas</span>
+            <span className="font-bold font-headline text-lg">Krish Singh</span>
           </Link>
         </div>
         <nav className="hidden md:flex items-center gap-6 text-sm ml-auto">

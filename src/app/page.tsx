@@ -3,15 +3,17 @@ import Resume from '@/components/sections/resume';
 import ConstellationGenerator from '@/components/sections/constellation-generator';
 import Contact from '@/components/sections/contact';
 import { ArrowDown } from 'lucide-react';
+import Header from '@/components/header';
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-dvh">
+      <Header />
       <main className="flex-1">
-        <section id="home" className="h-screen w-full flex items-center justify-center text-center p-4">
+        <section id="home" className="h-screen w-full flex items-center justify-center text-center p-4 -mt-16">
           <div className="z-10 animate-fade-in-up">
             <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-4 text-glow">
-              Cosmic Canvas
+              Krish Singh
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto" style={{ animationDelay: '0.2s' }}>
               A universe of projects, skills, and experience, forged in code and ready to be explored.
@@ -23,7 +25,6 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="py-20" />
         <Portfolio />
         <div className="py-20" />
         <Resume />
