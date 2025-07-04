@@ -49,10 +49,10 @@ export default function Home() {
           {animationState === 'rocket' && (
             <div className="absolute inset-0 flex items-center justify-center z-20 bg-background">
                <div className="animate-rocket-blast-off">
-                <div className="relative" style={{ transform: 'rotate(-45deg)' }}>
-                  <Rocket className="w-24 h-24 text-accent" />
+                <div className="relative">
+                  <Rocket className="w-24 h-24 text-accent -rotate-45" />
                   {/* Fire element */}
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-24 h-24">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-12">
                      <div className="w-6 h-20 mx-auto bg-gradient-to-t from-orange-500 via-yellow-400 to-transparent blur-md animate-fire-flicker" />
                      <div className="w-4 h-16 mx-auto bg-gradient-to-t from-red-600 via-orange-500 to-transparent blur-lg absolute top-0 left-1/2 -translate-x-1/2 animate-fire-flicker" style={{animationDelay: '0.05s'}} />
                   </div>
