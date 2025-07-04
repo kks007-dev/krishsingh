@@ -45,14 +45,14 @@ export default function Home() {
     <div className="flex flex-col min-h-dvh">
       <Header />
       <main className="flex-1">
-        <section id="home" className="h-screen w-full flex flex-col items-center justify-center text-center p-4 -mt-16 relative overflow-hidden">
+        <section id="home" className="h-[calc(100vh-4rem)] w-full flex flex-col items-center justify-center text-center p-4 relative overflow-hidden">
           {animationState === 'rocket' && (
             <div className="absolute inset-0 flex items-center justify-center z-20 bg-background">
                <div className="animate-rocket-blast-off">
                 <div className="relative">
                   <Rocket className="w-24 h-24 text-accent -rotate-45" />
                   {/* Fire element */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-12">
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-12 -translate-y-4">
                      <div className="w-6 h-20 mx-auto bg-gradient-to-t from-orange-500 via-yellow-400 to-transparent blur-md animate-fire-flicker" />
                      <div className="w-4 h-16 mx-auto bg-gradient-to-t from-red-600 via-orange-500 to-transparent blur-lg absolute top-0 left-1/2 -translate-x-1/2 animate-fire-flicker" style={{animationDelay: '0.05s'}} />
                   </div>
@@ -74,14 +74,6 @@ export default function Home() {
                   animationState === 'done' ? 'opacity-0' : 'opacity-100 animate-blink'
                 )}></span>
               </h1>
-              <div className={cn(
-                "transition-opacity duration-500",
-                animationState === 'done' ? 'opacity-100' : 'opacity-0'
-              )}>
-                <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto">
-                  A universe of projects, skills, and experience, forged in code and ready to be explored.
-                </p>
-              </div>
             </div>
           </div>
           <div className={cn(
