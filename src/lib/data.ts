@@ -6,7 +6,7 @@ export const portfolio = {
       description: "Founded and captained a community robotics team to the FIRST World Championship. Led mechanical, software, and business operations, raising over $70,000. Developed computer vision modules and swerve odometry algorithms. Merged the team with Harmony School of Innovation to expand STEM education.",
       image: "https://placehold.co/600x400.png",
       tags: ["Robotics", "Leadership", "Java", "Python", "CAD", "Fundraising"],
-      links: [{ icon: "github", url: "#" }],
+      links: [{ icon: "github", url: "#" }, { icon: "external-link", url: "https://www.robocolts.com" }],
       aiHint: "robotics competition",
     },
     {
@@ -38,7 +38,7 @@ export const portfolio = {
       description: "Founded and led a student-run non-profit to provide hands-on training in advanced technologies like CNC and 3D printing. Developed a full-stack online learning portal (STARS Portal) and raised over $50,000.",
       image: "https://placehold.co/600x400.png",
       tags: ["Non-Profit", "Founder", "Full Stack", "Machining", "Community"],
-      links: [{ icon: "github", url: "#" }, { icon: "external-link", url: "#" }],
+      links: [{ icon: "github", url: "#" }, { icon: "external-link", url: "https://starsportal.org" }],
       aiHint: "nonprofit organization",
     }
   ],
@@ -114,31 +114,31 @@ export const resume = {
     experience: [
         {
             role: "Founder, Team Captain & President",
-            company: "FIRST Robotics Competition Robo-Colts #9478",
+            company: "FIRST Robotics - Robo-Colts #9478",
             duration: "2023 - 2025",
             description: "Captained the team to the FIRST World Championship, leading mechanical, software, and business operations. Founded the team from my garage, raising over $70,000 through grants and sponsorships. Developed computer vision modules and swerve odometry for a competitive robot. Merged with Harmony School of Innovation to expand STEM education.",
         },
         {
             role: "Researcher, Designer",
-            company: "RICE University PATHS_UP Young Scholars",
+            company: "RICE University Internship",
             duration: "Summer 2023",
             description: "Researched digital electronics, designed custom printed circuit boards (PCBs), and used prediction analysis to find correlations between Vitamin D deficiency and muscle tension. Trained Python AI models for image detection and experimented with 1mm 3D printing and TinyTech microcontrollers.",
         },
         {
             role: "Intern, Modeling & Printing Manager",
-            company: "University of Houston I-TECH",
+            company: "University of Houston Internship",
             duration: "Summer 2022, 2023",
             description: "Managed modeling and printing for STEM and Biotechnology camps. Worked with industrial 3D printers and modeling software to build prototypes and AR/VR models of amino acid compounds, experimenting with material flexibility and tensile strength.",
         },
         {
             role: "Business Intern",
-            company: "VentureStarters",
+            company: "VentureStarters Internship",
             duration: "2023 - 2024",
             description: "Interned at startup pitch community events, learning principles of pitching, funding, and legal processes. Connected with over 200 startup professionals through technology and science events.",
         },
         {
             role: "Founder, President, & Machinist",
-            company: "S.T.A.R.S Non-Profit 501c3",
+            company: "S.T.A.R.S Non-Profit",
             duration: "2022 - Present",
             description: "Founded and led a student-run organization providing hands-on training in advanced technologies (CNC, 3D printing). Developed a free, full-stack online learning portal (STARS Portal). Raised over $50,000 in funds for materials and certifications, reaching a nationwide audience.",
         },
