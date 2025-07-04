@@ -1,7 +1,7 @@
 // src/ai/flows/generate-personalized-constellation.ts
 'use server';
 /**
- * @fileOverview Generates a personalized constellation image based on portfolio details.
+ * @fileOverview Generates a personalized constellation image based on recruiter inputs.
  *
  * - generatePersonalizedConstellation - A function that generates a constellation image.
  * - GeneratePersonalizedConstellationInput - The input type for the generatePersonalizedConstellation function.
@@ -12,9 +12,14 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const GeneratePersonalizedConstellationInputSchema = z.object({
-  portfolioDetails: z
+  companyName: z.string().describe("The recruiter's company name."),
+  role: z.string().describe('The job role they are hiring for.'),
+  keySkills: z
     .string()
-    .describe('A description of the users portfolio and work experience.'),
+    .describe('Key skills they are looking for in a candidate.'),
+  companyCulture: z
+    .string()
+    .describe('A few words about the company culture.'),
 });
 export type GeneratePersonalizedConstellationInput = z.infer<
   typeof GeneratePersonalizedConstellationInputSchema
@@ -24,7 +29,7 @@ const GeneratePersonalizedConstellationOutputSchema = z.object({
   constellationImage: z
     .string()
     .describe(
-      'The generated constellation image as a data URI that must include a MIME type and use Base64 encoding. Expected format: \'data:<mimetype>;base64,<encoded_data>\'.' // Keep the backslashes for escaping special characters like single quotes
+      "The generated constellation image as a data URI that must include a MIME type and use Base64 encoding. Expected format: 'data:<mimetype>;base64,<encoded_data>'."
     ),
 });
 export type GeneratePersonalizedConstellationOutput = z.infer<
@@ -37,15 +42,6 @@ export async function generatePersonalizedConstellation(
   return generatePersonalizedConstellationFlow(input);
 }
 
-const prompt = ai.definePrompt({
-  name: 'generatePersonalizedConstellationPrompt',
-  input: {schema: GeneratePersonalizedConstellationInputSchema},
-  output: {schema: GeneratePersonalizedConstellationOutputSchema},
-  prompt: `Given the following portfolio details, generate a constellation image that visually represents the user\'s work and experience.  The image should be a data URI.
-
-Portfolio Details: {{{portfolioDetails}}}`, // Keep the backslashes for escaping single quotes in the prompt string.
-});
-
 const generatePersonalizedConstellationFlow = ai.defineFlow(
   {
     name: 'generatePersonalizedConstellationFlow',
@@ -53,13 +49,17 @@ const generatePersonalizedConstellationFlow = ai.defineFlow(
     outputSchema: GeneratePersonalizedConstellationOutputSchema,
   },
   async input => {
+    const {companyName, role, keySkills, companyCulture} = input;
+    const promptText = `Generate a cosmic constellation that represents a potential job opportunity.
+      Company Name: ${companyName}
+      Hiring for Role: ${role}
+      Key Skills Required: ${keySkills}
+      Company Culture: ${companyCulture}
+      The constellation should be a beautiful, abstract representation of these elements, like a celestial map for a career. It should be set against a dark, starry night sky background. Do not include any text in the image.`;
+
     const {media} = await ai.generate({
       model: 'googleai/gemini-2.0-flash-preview-image-generation',
-      prompt: [
-        {
-          text: `Generate a constellation background based on these portfolio details: ${input.portfolioDetails}`,
-        },
-      ],
+      prompt: [{text: promptText}],
       config: {
         responseModalities: ['TEXT', 'IMAGE'],
       },
