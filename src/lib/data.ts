@@ -1,3 +1,4 @@
+
 export const portfolio = {
   work: [
     {
@@ -50,7 +51,55 @@ export const portfolio = {
         tags: ["Figma", "SVG", "Design System"],
         links: [{ icon: "github", url: "#" }],
         aiHint: "icons design",
-      },
+    },
+    {
+      title: "S.T.A.R.S Portal",
+      description: "A full-stack development project for the S.T.A.R.S landing page, utilizing a modern tech stack.",
+      image: "https://placehold.co/600x400.png",
+      tags: ["Node.JS", "React", "TypeScript", "Full Stack"],
+      links: [{ icon: "github", url: "#" }],
+      aiHint: "portal stars",
+    },
+    {
+      title: "I.D.R.O.N",
+      description: "A solar-powered household radiation detector featuring advanced Geiger circuit technology.",
+      image: "https://placehold.co/600x400.png",
+      tags: ["Hardware", "Electronics", "Geiger Circuit"],
+      links: [{ icon: "github", url: "#" }],
+      aiHint: "radiation detector",
+    },
+    {
+      title: "TSA Carbon Pollution Energy App",
+      description: "A predictive carbon footprint application using Python to analyze large datasets and forecast energy consumption.",
+      image: "https://placehold.co/600x400.png",
+      tags: ["Python", "Data Science", "Machine Learning"],
+      links: [{ icon: "github", url: "#" }],
+      aiHint: "carbon footprint",
+    },
+    {
+      title: "Microcontroller Vitamin D Health Device",
+      description: "An electronics research project from RICE University to create a personal health monitoring device.",
+      image: "https://placehold.co/600x400.png",
+      tags: ["Microcontroller", "Health Tech", "Research"],
+      links: [{ icon: "github", url: "#" }],
+      aiHint: "health device",
+    },
+    {
+      title: "Diligence Financial Platform (Beta)",
+      description: "A platform for financial indicators and data visualization, built with Python, TypeScript, and ShadCN.",
+      image: "https://placehold.co/600x400.png",
+      tags: ["Python", "TypeScript", "JavaScript", "ShadCn", "FinTech"],
+      links: [{ icon: "github", url: "#" }],
+      aiHint: "finance platform",
+    },
+    {
+      title: "Un-Leach",
+      description: "A research project on leachate contamination, focusing on engineering design and development to mitigate environmental impact.",
+      image: "https://placehold.co/600x400.png",
+      tags: ["Research", "Engineering", "Environmental"],
+      links: [{ icon: "github", url: "#" }],
+      aiHint: "engineering research",
+    }
   ],
 };
 
