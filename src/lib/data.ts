@@ -156,7 +156,7 @@ export const resume = {
         }
     ],
     skills: [
-        "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "GraphQL", "PostgreSQL", "MongoDB", "Docker", "Git", "Figma", "CI/CD", "Python", "Java", "CAD", "3D Printing"
+        "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "GraphQL", "PostgreSQL", "MongoDB", "Docker", "Git", "Figma", "CI/CD", "Python", "Java", "CAD", "3D Printing", "ACU Certification", "Python Certification", "CSS", "Java Certification", "JavaScript Certification", "C++", "AI Fundamentals Certification", "HTML Certification", "Flutter"
     ]
 }
 
