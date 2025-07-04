@@ -42,12 +42,12 @@ export default function Header() {
             <Link
               key={label}
               href={href}
-              className="font-medium text-foreground/80 transition-colors hover:text-foreground hover:text-gradient-accent hover:bg-accent-gradient hover:bg-clip-text"
+              className="font-medium text-foreground/80 transition-colors hover:text-accent"
             >
               {label}
             </Link>
           ))}
-           <Button asChild size="sm" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground font-bold">
+           <Button asChild size="sm" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground font-bold">
             <a href="#contact">
               Hire Me
             </a>
@@ -68,13 +68,13 @@ export default function Header() {
                     <Link
                     key={label}
                     href={href}
-                    className="w-full font-medium text-foreground/80 transition-colors hover:text-foreground"
+                    className="w-full font-medium text-foreground/80 transition-colors hover:text-accent"
                     onClick={() => setIsOpen(false)}
                     >
                     {label}
                     </Link>
                 ))}
-                 <Button asChild size="sm" variant="outline" className="w-full border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground font-bold">
+                 <Button asChild size="sm" variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground font-bold">
                     <a href="#contact" onClick={() => setIsOpen(false)}>
                         Hire Me
                     </a>
