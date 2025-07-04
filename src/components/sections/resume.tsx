@@ -1,19 +1,42 @@
+'use client';
+
+import { useState } from 'react';
 import { resume } from '@/lib/data';
 import { Badge } from '@/components/ui/badge';
 import { Briefcase, GraduationCap } from 'lucide-react';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
+import { cn } from '@/lib/utils';
 
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
     <h2 className="text-5xl font-bold text-center font-headline mb-12 text-glow">{children}</h2>
 );
 
 export default function Resume() {
+  const [showDetails, setShowDetails] = useState(false);
+
   return (
     <section id="resume" className="py-20 px-4 container">
         <SectionTitle>My Professional Journey</SectionTitle>
         <div className="glass-card p-8 md:p-12 max-w-5xl mx-auto">
             <div className="grid md:grid-cols-5 gap-16">
                 <div className="md:col-span-3">
-                    <h3 className="text-3xl flex items-center gap-3 font-bold font-headline mb-8 text-glow"><Briefcase className="w-8 h-8 text-accent" /> Experience</h3>
+                    <div className="flex justify-between items-center mb-8">
+                        <h3 className="text-3xl flex items-center gap-3 font-bold font-headline text-glow">
+                            <Briefcase className="w-8 h-8 text-accent" /> Experience
+                        </h3>
+                        <div className="flex items-center gap-2 text-sm">
+                            <Label htmlFor="experience-toggle" className={cn("transition-colors", !showDetails ? 'text-accent' : 'text-muted-foreground')}>Simple</Label>
+                            <Switch
+                                id="experience-toggle"
+                                checked={showDetails}
+                                onCheckedChange={setShowDetails}
+                                aria-label="Toggle experience details"
+                            />
+                            <Label htmlFor="experience-toggle" className={cn("transition-colors", showDetails ? 'text-accent' : 'text-muted-foreground')}>Detailed</Label>
+                        </div>
+                    </div>
+
                     <div className="relative border-l-2 border-accent/20 pl-10 space-y-12">
                         {resume.experience.map((job, index) => (
                             <div key={index} className="relative">
@@ -23,7 +46,9 @@ export default function Resume() {
                                 <p className="text-sm text-muted-foreground">{job.duration}</p>
                                 <h4 className="font-semibold text-lg">{job.role}</h4>
                                 <p className="font-medium text-accent">{job.company}</p>
-                                <p className="mt-2 text-sm text-muted-foreground">{job.description}</p>
+                                {showDetails && (
+                                    <p className="mt-2 text-sm text-muted-foreground animate-fade-in">{job.description}</p>
+                                )}
                             </div>
                         ))}
                     </div>
