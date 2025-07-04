@@ -47,7 +47,7 @@ export default function Header() {
               {label}
             </Link>
           ))}
-           <Button asChild size="sm" className="bg-accent-gradient text-accent-foreground font-bold">
+           <Button asChild size="sm" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground font-bold">
             <a href="#contact">
               Hire Me
             </a>
@@ -74,7 +74,7 @@ export default function Header() {
                     {label}
                     </Link>
                 ))}
-                 <Button asChild size="sm" className="w-full bg-accent-gradient text-accent-foreground font-bold">
+                 <Button asChild size="sm" variant="outline" className="w-full border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground font-bold">
                     <a href="#contact" onClick={() => setIsOpen(false)}>
                         Hire Me
                     </a>
