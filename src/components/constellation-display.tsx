@@ -31,32 +31,67 @@ const predefinedConstellations: Record<
 > = {
   orion: {
     positions: [
-      { x: '45%', y: '52%' }, // Project 1 (Alnitak)
-      { x: '50%', y: '50%' }, // Project 2 (Alnilam)
-      { x: '55%', y: '48%' }, // Project 3 (Mintaka)
-      { x: '20%', y: '15%', className: 'bg-red-400' }, // Betelgeuse
-      { x: '80%', y: '20%' }, // Bellatrix
-      { x: '22%', y: '88%' }, // Saiph
-      { x: '78%', y: '90%', className: 'bg-blue-300' }, // Rigel
+      { x: '47.5%', y: '50%' }, // Project 1 (Alnitak)
+      { x: '55%', y: '52.5%' }, // Project 2 (Alnilam)
+      { x: '62.5%', y: '55%' }, // Project 3 (Mintaka)
+      { x: '28.75%', y: '16.25%', className: 'bg-red-400' }, // Betelgeuse
+      { x: '71.25%', y: '22.5%' }, // Bellatrix
+      { x: '43.75%', y: '85%' }, // Saiph
+      { x: '75%', y: '81.25%', className: 'bg-blue-300' }, // Rigel
+      { x: '55.625%', y: '61.25%' }, // Sword1
+      { x: '56.875%', y: '65%' }, // Sword2
+      { x: '57.5%', y: '68.75%' }, // Sword3
+      { x: '85%', y: '31.25%' }, // Bow1
+      { x: '88.75%', y: '37.5%' }, // Bow2
+      { x: '87.5%', y: '43.75%' }, // Bow3
+      { x: '83.75%', y: '50%' }, // Bow4
+      { x: '22.5%', y: '10%' }, // Club1
+      { x: '15%', y: '5%' }, // Club2
     ],
     edges: [
-      [3, 4], // Betelgeuse to Bellatrix (shoulders)
-      [3, 1], // Betelgeuse to Alnilam (center of belt)
+      [3, 1], // Betelgeuse to Alnilam
       [4, 1], // Bellatrix to Alnilam
       [0, 1], // Alnitak to Alnilam
       [1, 2], // Alnilam to Mintaka
+      [1, 8], // Alnilam to Sword2
+      [7, 8], // Sword1 to Sword2
+      [8, 9], // Sword2 to Sword3
       [0, 5], // Alnitak to Saiph
       [2, 6], // Mintaka to Rigel
+      [3, 14], // Betelgeuse to Club1
+      [14, 15], // Club1 to Club2
+      [4, 10], // Bellatrix to Bow1
+      [10, 11], // Bow1 to Bow2
+      [11, 12], // Bow2 to Bow3
+      [12, 13], // Bow3 to Bow4
     ],
   },
   andromeda: {
     positions: [
-      { x: '10%', y: '80%' }, // Project 1
-      { x: '35%', y: '60%' }, // Project 2
-      { x: '65%', y: '40%' },
-      { x: '90%', y: '25%' },
+      { x: '25%', y: '18.75%' }, // Project 1 (Alpheratz)
+      { x: '56.25%', y: '50%' }, // Project 2 (Mirach)
+      { x: '37.5%', y: '31.25%' }, // DeltaAnd
+      { x: '43.75%', y: '68.75%' }, // MuAnd
+      { x: '81.25%', y: '62.5%' }, // Almach
+      { x: '68.75%', y: '43.75%' }, // NuAnd
+      { x: '18.75%', y: '31.25%' }, // Upper1
+      { x: '12.5%', y: '43.75%' }, // Upper2
+      { x: '31.25%', y: '12.5%' }, // Upper3
+      { x: '87.5%', y: '25%' }, // Branch1
+      { x: '93.75%', y: '18.75%' }, // Branch2
     ],
-    edges: [[0, 1], [1, 2], [2, 3]],
+    edges: [
+      [0, 2], // Alpheratz to DeltaAnd
+      [2, 1], // DeltaAnd to Mirach
+      [1, 3], // Mirach to MuAnd
+      [1, 5], // Mirach to NuAnd
+      [5, 4], // NuAnd to Almach
+      [0, 6], // Alpheratz to Upper1
+      [6, 7], // Upper1 to Upper2
+      [0, 8], // Alpheratz to Upper3
+      [4, 9], // Almach to Branch1
+      [9, 10], // Branch1 to Branch2
+    ],
   },
 };
 
