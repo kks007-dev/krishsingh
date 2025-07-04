@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -58,8 +59,8 @@ export default function Resume() {
                     <div className="space-y-6">
                          {resume.education.map((edu, index) => (
                             <div key={index}>
-                                <h4 className="font-semibold text-lg">{edu.degree}</h4>
-                                <p className="font-medium text-secondary">{edu.institution}</p>
+                                <h4 className="font-semibold text-lg">{edu.institution}</h4>
+                                <p className="font-medium text-secondary">{edu.degree}</p>
                                 <p className="text-sm text-muted-foreground">{edu.duration}</p>
                             </div>
                         ))}

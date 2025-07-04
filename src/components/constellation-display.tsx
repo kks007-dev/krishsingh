@@ -1,3 +1,4 @@
+
 'use client';
 
 import type { portfolio } from '@/lib/data';
@@ -16,39 +17,51 @@ const predefinedConstellations: Record<
 > = {
   orion: {
     positions: [
-      { x: '28.75%', y: '16.25%', className: 'bg-red-400' }, // Project 1 Betelgeuse
-      { x: '71.25%', y: '22.5%' }, // Project 2 Bellatrix
-      { x: '47.5%', y: '50%' }, // Project 3 Alnitak
-      { x: '55%', y: '52.5%' }, // Project 4 Alnilam
-      { x: '62.5%', y: '55%' }, // Project 5 Mintaka
-      { x: '43.75%', y: '85%' }, // Saiph
-      { x: '60%', y: '81.25%', className: 'bg-blue-300' }, // Rigel
-      { x: '55.625%', y: '61.25%' }, // Sword1
-      { x: '56.875%', y: '65%' }, // Sword2
-      { x: '57.5%', y: '68.75%' }, // Sword3
-      { x: '85%', y: '31.25%' }, // Bow1
-      { x: '88.75%', y: '37.5%' }, // Bow2
-      { x: '87.5%', y: '43.75%' }, // Bow3
-      { x: '83.75%', y: '50%' }, // Bow4
-      { x: '22.5%', y: '10%' }, // Club1
-      { x: '15%', y: '5%' }, // Club2
+      // Interactive Project Stars (10 total)
+      { x: '28.75%', y: '16.25%', className: 'bg-red-400' }, // 0: Betelgeuse (FIRST Robotics)
+      { x: '71.25%', y: '22.5%' },                         // 1: Bellatrix (RICE University)
+      { x: '47.5%', y: '50%' },                             // 2: Alnitak (U of H)
+      { x: '55%', y: '52.5%' },                             // 3: Alnilam (VentureStarters)
+      { x: '62.5%', y: '55%' },                             // 4: Mintaka (S.T.A.R.S)
+      { x: '43.75%', y: '85%' },                            // 5: Saiph (FIRST Tech Challenge)
+      { x: '60%', y: '81.25%', className: 'bg-blue-300' },  // 6: Rigel (TSA)
+      { x: '56.875%', y: '65%' },                           // 7: Sword (CyberPatriot)
+      { x: '85%', y: '31.25%' },                            // 8: Bow (NAACH)
+      { x: '22.5%', y: '10%' },                             // 9: Club (Harmony Dance)
+      
+      // Non-interactive background stars
+      { x: '55.625%', y: '61.25%' }, // 10: Sword BG 1
+      { x: '57.5%', y: '68.75%' },   // 11: Sword BG 2
+      { x: '88.75%', y: '37.5%' },   // 12: Bow BG 1
+      { x: '87.5%', y: '43.75%' },   // 13: Bow BG 2
+      { x: '83.75%', y: '50%' },     // 14: Bow BG 3
+      { x: '15%', y: '5%' },         // 15: Club BG 1
     ],
     edges: [
-      [0, 3],
-      [1, 3],
-      [2, 3],
-      [3, 4],
-      [3, 8],
-      [7, 8],
-      [8, 9],
-      [2, 5],
-      [4, 6],
-      [0, 14],
-      [14, 15],
-      [1, 10],
+      // Main Body
+      [0, 3], // Betelgeuse to Alnilam
+      [1, 3], // Bellatrix to Alnilam
+      [6, 4], // Rigel to Mintaka
+      [5, 2], // Saiph to Alnitak
+
+      // Belt
+      [2, 3], // Alnitak to Alnilam
+      [3, 4], // Alnilam to Mintaka
+
+      // Sword
+      [3, 7], // Alnilam to main Sword star
+      [7, 10], // Main Sword to BG Sword
       [10, 11],
-      [11, 12],
+
+      // Club
+      [0, 9], // Betelgeuse to main Club star
+      [9, 15], // Main Club to BG Club
+
+      // Bow
+      [1, 8], // Bellatrix to main Bow star
+      [8, 12],
       [12, 13],
+      [13, 14],
     ],
   },
   andromeda: {
