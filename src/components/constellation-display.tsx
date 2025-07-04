@@ -16,13 +16,13 @@ const predefinedConstellations: Record<
 > = {
   orion: {
     positions: [
-      { x: '28.75%', y: '16.25%', className: 'bg-red-400' }, // Project 1 Betelgeuse -> Swapped to be a project
-      { x: '71.25%', y: '22.5%' }, // Project 2 Bellatrix -> Swapped
-      { x: '60%', y: '81.25%', className: 'bg-blue-300' }, // Project 3 Rigel -> Swapped
-      { x: '47.5%', y: '50%' }, // Alnitak
-      { x: '55%', y: '52.5%' }, // Alnilam
-      { x: '62.5%', y: '55%' }, // Mintaka
+      { x: '28.75%', y: '16.25%', className: 'bg-red-400' }, // Project 1 Betelgeuse
+      { x: '71.25%', y: '22.5%' }, // Project 2 Bellatrix
+      { x: '47.5%', y: '50%' }, // Project 3 Alnitak
+      { x: '55%', y: '52.5%' }, // Project 4 Alnilam
+      { x: '62.5%', y: '55%' }, // Project 5 Mintaka
       { x: '43.75%', y: '85%' }, // Saiph
+      { x: '60%', y: '81.25%', className: 'bg-blue-300' }, // Rigel
       { x: '55.625%', y: '61.25%' }, // Sword1
       { x: '56.875%', y: '65%' }, // Sword2
       { x: '57.5%', y: '68.75%' }, // Sword3
@@ -34,48 +34,48 @@ const predefinedConstellations: Record<
       { x: '15%', y: '5%' }, // Club2
     ],
     edges: [
-      [0, 4], // Betelgeuse to Alnilam
-      [1, 4], // Bellatrix to Alnilam
-      [3, 4], // Alnitak to Alnilam
-      [4, 5], // Alnilam to Mintaka
-      [4, 8], // Alnilam to Sword2
-      [7, 8], // Sword1 to Sword2
-      [8, 9], // Sword2 to Sword3
-      [3, 6], // Alnitak to Saiph
-      [5, 2], // Mintaka to Rigel
-      [0, 14], // Betelgeuse to Club1
-      [14, 15], // Club1 to Club2
-      [1, 10], // Bellatrix to Bow1
-      [10, 11], // Bow1 to Bow2
-      [11, 12], // Bow2 to Bow3
-      [12, 13], // Bow3 to Bow4
+      [0, 3],
+      [1, 3],
+      [2, 3],
+      [3, 4],
+      [3, 8],
+      [7, 8],
+      [8, 9],
+      [2, 5],
+      [4, 6],
+      [0, 14],
+      [14, 15],
+      [1, 10],
+      [10, 11],
+      [11, 12],
+      [12, 13],
     ],
   },
   andromeda: {
     positions: [
       { x: '25%', y: '18.75%' }, // Project 1 (Alpheratz)
       { x: '56.25%', y: '50%' }, // Project 2 (Mirach)
-      { x: '37.5%', y: '31.25%' }, // DeltaAnd
-      { x: '43.75%', y: '68.75%' }, // MuAnd
-      { x: '81.25%', y: '62.5%' }, // Almach
-      { x: '68.75%', y: '43.75%' }, // NuAnd
-      { x: '18.75%', y: '31.25%' }, // Upper1
-      { x: '12.5%', y: '43.75%' }, // Upper2
-      { x: '31.25%', y: '12.5%' }, // Upper3
-      { x: '87.5%', y: '25%' }, // Branch1
-      { x: '93.75%', y: '18.75%' }, // Branch2
+      { x: '81.25%', y: '62.5%' }, // Project 3 (Almach)
+      { x: '37.5%', y: '31.25%' }, // Project 4
+      { x: '43.75%', y: '68.75%' }, // Project 5
+      { x: '68.75%', y: '43.75%' }, // Project 6
+      { x: '18.75%', y: '31.25%' }, // Project 7
+      { x: '12.5%', y: '43.75%' }, // Project 8
+      { x: '31.25%', y: '12.5%' },
+      { x: '87.5%', y: '25%' },
+      { x: '93.75%', y: '18.75%' },
     ],
     edges: [
-      [0, 2], // Alpheratz to DeltaAnd
-      [2, 1], // DeltaAnd to Mirach
-      [1, 3], // Mirach to MuAnd
-      [1, 5], // Mirach to NuAnd
-      [5, 4], // NuAnd to Almach
-      [0, 6], // Alpheratz to Upper1
-      [6, 7], // Upper1 to Upper2
-      [0, 8], // Alpheratz to Upper3
-      [4, 9], // Almach to Branch1
-      [9, 10], // Branch1 to Branch2
+      [0, 3],
+      [3, 1],
+      [1, 4],
+      [1, 5],
+      [5, 2],
+      [0, 6],
+      [6, 7],
+      [0, 8],
+      [2, 9],
+      [9, 10],
     ],
   },
 };
@@ -125,6 +125,12 @@ export default function ConstellationDisplay({
 
   return (
     <div className="relative w-full max-w-lg mx-auto aspect-square">
+      {name === 'orion' && (
+        <>
+          <div className="absolute top-4 left-4 text-sm text-muted-foreground font-headline">2021</div>
+          <div className="absolute bottom-4 right-4 text-sm text-muted-foreground font-headline">2025 - Current</div>
+        </>
+      )}
       <svg className="absolute top-0 left-0 w-full h-full" style={{ zIndex: -1 }}>
         <defs>
           <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">

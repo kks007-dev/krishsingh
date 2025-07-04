@@ -2,38 +2,45 @@
 export const portfolio = {
   work: [
     {
-      title: "QuantumLeap E-Commerce",
-      description: "A full-stack e-commerce platform featuring a custom-built CMS, secure payment gateway integration with Stripe, and a responsive, mobile-first user interface.",
+      title: "FIRST Robotics - Robo-Colts #9478",
+      description: "Founded and captained a community robotics team to the FIRST World Championship. Led mechanical, software, and business operations, raising over $70,000. Developed computer vision modules and swerve odometry algorithms. Merged the team with Harmony School of Innovation to expand STEM education.",
       image: "https://placehold.co/600x400.png",
-      tags: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Tailwind CSS"],
-      links: [
-        { icon: "github", url: "#" },
-        { icon: "external-link", url: "#" },
-      ],
-      aiHint: "online store",
+      tags: ["Robotics", "Leadership", "Java", "Python", "CAD", "Fundraising"],
+      links: [{ icon: "github", url: "#" }],
+      aiHint: "robotics competition",
     },
     {
-      title: "DataSphere Analytics",
-      description: "An interactive data visualization dashboard for a SaaS product, providing users with real-time insights and customizable reports.",
+      title: "RICE University Internship",
+      description: "Researched digital electronics and designed custom PCBs. Analyzed data to find correlations between Vitamin D and muscle tension. Collaborated with graduate students to train Python AI/ML models for image detection and experimented with 3D printing and microcontroller technology.",
       image: "https://placehold.co/600x400.png",
-      tags: ["Next.js", "D3.js", "TypeScript", "PostgreSQL"],
-      links: [
-        { icon: "github", url: "#" },
-        { icon: "external-link", url: "#" },
-      ],
-      aiHint: "charts graphs",
+      tags: ["Research", "Electronics", "Python", "AI/ML", "PCB Design"],
+      links: [{ icon: "external-link", url: "#" }],
+      aiHint: "university research",
     },
     {
-        title: "ConnectSphere Social App",
-        description: "A mobile-first social networking application with real-time chat, user profiles, and a content feed, built using a modern tech stack.",
-        image: "https://placehold.co/600x400.png",
-        tags: ["React Native", "Firebase", "GraphQL"],
-        links: [
-          { icon: "github", url: "#" },
-          { icon: "external-link", url: "#" },
-        ],
-        aiHint: "social media",
-      },
+      title: "University of Houston Internship",
+      description: "Served as Modeling Assistant Manager and later Modeling/Printing Manager for I-TECH stem camps. Managed industrial 3D printers, prototyped various items, and developed custom 3D models of amino acid compounds for AR/VR visualization.",
+      image: "https://placehold.co/600x400.png",
+      tags: ["3D Modeling", "3D Printing", "AR/VR", "Biotechnology"],
+      links: [{ icon: "external-link", url: "#" }],
+      aiHint: "3d printing",
+    },
+    {
+      title: "VentureStarters Internship",
+      description: "Interned at startup pitch community events, learning about pitching, funding, and the legal aspects of startups. Networked with over 200 startup professionals at technology and science events.",
+      image: "https://placehold.co/600x400.png",
+      tags: ["Business", "Startups", "Networking", "Venture Capital"],
+      links: [{ icon: "external-link", url: "#" }],
+      aiHint: "business startup",
+    },
+    {
+      title: "S.T.A.R.S Non-Profit",
+      description: "Founded and led a student-run non-profit to provide hands-on training in advanced technologies like CNC and 3D printing. Developed a full-stack online learning portal (STARS Portal) and raised over $50,000.",
+      image: "https://placehold.co/600x400.png",
+      tags: ["Non-Profit", "Founder", "Full Stack", "Machining", "Community"],
+      links: [{ icon: "github", url: "#" }, { icon: "external-link", url: "#" }],
+      aiHint: "nonprofit organization",
+    }
   ],
   passion: [
     {
@@ -106,27 +113,50 @@ export const portfolio = {
 export const resume = {
     experience: [
         {
-            role: "Senior Frontend Developer",
-            company: "TechNova Inc.",
-            duration: "2020 - Present",
-            description: "Led the development of user-facing features for a high-traffic web application, mentored junior developers, and improved application performance by 30%.",
+            role: "Founder, Team Captain & President",
+            company: "FIRST Robotics Competition Robo-Colts #9478",
+            duration: "2023 - 2025",
+            description: "Captained the team to the FIRST World Championship, leading mechanical, software, and business operations. Founded the team from my garage, raising over $70,000 through grants and sponsorships. Developed computer vision modules and swerve odometry for a competitive robot. Merged with Harmony School of Innovation to expand STEM education.",
         },
         {
-            role: "Full-Stack Developer",
-            company: "Digital Solutions Co.",
-            duration: "2018 - 2020",
-            description: "Developed and maintained client websites and web applications, collaborating with designers and project managers to deliver high-quality products on time.",
-        }
+            role: "Researcher, Designer",
+            company: "RICE University PATHS_UP Young Scholars",
+            duration: "Summer 2023",
+            description: "Researched digital electronics, designed custom printed circuit boards (PCBs), and used prediction analysis to find correlations between Vitamin D deficiency and muscle tension. Trained Python AI models for image detection and experimented with 1mm 3D printing and TinyTech microcontrollers.",
+        },
+        {
+            role: "Intern, Modeling & Printing Manager",
+            company: "University of Houston I-TECH",
+            duration: "Summer 2022, 2023",
+            description: "Managed modeling and printing for STEM and Biotechnology camps. Worked with industrial 3D printers and modeling software to build prototypes and AR/VR models of amino acid compounds, experimenting with material flexibility and tensile strength.",
+        },
+        {
+            role: "Business Intern",
+            company: "VentureStarters",
+            duration: "2023 - 2024",
+            description: "Interned at startup pitch community events, learning principles of pitching, funding, and legal processes. Connected with over 200 startup professionals through technology and science events.",
+        },
+        {
+            role: "Founder, President, & Machinist",
+            company: "S.T.A.R.S Non-Profit 501c3",
+            duration: "2022 - Present",
+            description: "Founded and led a student-run organization providing hands-on training in advanced technologies (CNC, 3D printing). Developed a free, full-stack online learning portal (STARS Portal). Raised over $50,000 in funds for materials and certifications, reaching a nationwide audience.",
+        },
     ],
     education: [
         {
-            degree: "B.S. in Computer Science",
-            institution: "University of Technology",
-            duration: "2014 - 2018",
+            degree: "B.S. in Computer Engineering",
+            institution: "Texas A&M University, College Station, TX",
+            duration: "Aug. 2025 - May 2029",
+        },
+        {
+            degree: "High School Diploma",
+            institution: "Harmony School of Innovation, Sugar Land, TX",
+            duration: "Aug. 2021 - May 2025",
         }
     ],
     skills: [
-        "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "GraphQL", "PostgreSQL", "MongoDB", "Docker", "Git", "Figma", "CI/CD"
+        "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "GraphQL", "PostgreSQL", "MongoDB", "Docker", "Git", "Figma", "CI/CD", "Python", "Java", "CAD", "3D Printing"
     ]
 }
 
