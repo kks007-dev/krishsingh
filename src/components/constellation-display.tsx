@@ -1,25 +1,10 @@
 'use client';
 
-import { portfolio } from '@/lib/data';
-import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
-import Link from 'next/link';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
+import type { portfolio } from '@/lib/data';
 import React from 'react';
-import { Github, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type Project = (typeof portfolio.work)[0];
-
-const icons: { [key: string]: React.ElementType } = {
-  github: Github,
-  'external-link': ExternalLink,
-};
 
 type ConstellationName = 'orion' | 'andromeda';
 
@@ -31,13 +16,13 @@ const predefinedConstellations: Record<
 > = {
   orion: {
     positions: [
-      { x: '47.5%', y: '50%' }, // Project 1 (Alnitak)
-      { x: '55%', y: '52.5%' }, // Project 2 (Alnilam)
-      { x: '62.5%', y: '55%' }, // Project 3 (Mintaka)
-      { x: '28.75%', y: '16.25%', className: 'bg-red-400' }, // Betelgeuse
-      { x: '71.25%', y: '22.5%' }, // Bellatrix
+      { x: '28.75%', y: '16.25%', className: 'bg-red-400' }, // Project 1 Betelgeuse -> Swapped to be a project
+      { x: '71.25%', y: '22.5%' }, // Project 2 Bellatrix -> Swapped
+      { x: '60%', y: '81.25%', className: 'bg-blue-300' }, // Project 3 Rigel -> Swapped
+      { x: '47.5%', y: '50%' }, // Alnitak
+      { x: '55%', y: '52.5%' }, // Alnilam
+      { x: '62.5%', y: '55%' }, // Mintaka
       { x: '43.75%', y: '85%' }, // Saiph
-      { x: '75%', y: '81.25%', className: 'bg-blue-300' }, // Rigel
       { x: '55.625%', y: '61.25%' }, // Sword1
       { x: '56.875%', y: '65%' }, // Sword2
       { x: '57.5%', y: '68.75%' }, // Sword3
@@ -49,18 +34,18 @@ const predefinedConstellations: Record<
       { x: '15%', y: '5%' }, // Club2
     ],
     edges: [
-      [3, 1], // Betelgeuse to Alnilam
-      [4, 1], // Bellatrix to Alnilam
-      [0, 1], // Alnitak to Alnilam
-      [1, 2], // Alnilam to Mintaka
-      [1, 8], // Alnilam to Sword2
+      [0, 4], // Betelgeuse to Alnilam
+      [1, 4], // Bellatrix to Alnilam
+      [3, 4], // Alnitak to Alnilam
+      [4, 5], // Alnilam to Mintaka
+      [4, 8], // Alnilam to Sword2
       [7, 8], // Sword1 to Sword2
       [8, 9], // Sword2 to Sword3
-      [0, 5], // Alnitak to Saiph
-      [2, 6], // Mintaka to Rigel
-      [3, 14], // Betelgeuse to Club1
+      [3, 6], // Alnitak to Saiph
+      [5, 2], // Mintaka to Rigel
+      [0, 14], // Betelgeuse to Club1
       [14, 15], // Club1 to Club2
-      [4, 10], // Bellatrix to Bow1
+      [1, 10], // Bellatrix to Bow1
       [10, 11], // Bow1 to Bow2
       [11, 12], // Bow2 to Bow3
       [12, 13], // Bow3 to Bow4
@@ -95,109 +80,99 @@ const predefinedConstellations: Record<
   },
 };
 
-const ProjectTooltipContent = ({ project }: { project: Project }) => (
-  <div className="glass-card w-48 max-w-xs overflow-hidden p-0">
-    <div className="p-4">
-      <h3 className="text-base font-bold font-headline mb-1 text-glow">{project.title}</h3>
-      <p className="text-muted-foreground text-xs mb-3 h-16 overflow-auto">{project.description}</p>
-      <div className="flex flex-wrap gap-1 mb-3">
-        {project.tags.map(tag => (
-          <Badge key={tag} variant="outline" className="text-xs border-accent/50 text-accent bg-accent/10 backdrop-blur-sm">{tag}</Badge>
-        ))}
-      </div>
-      <div className="flex gap-3 items-center">
-        {project.links.map((link, index) => {
-          const Icon = icons[link.icon];
-          if (!Icon) return null;
-          return (
-            <Link href={link.url} key={index} target="_blank" rel="noopener noreferrer" className="text-accent/80 hover:text-accent transition-colors flex items-center gap-2">
-              <Icon className="w-4 h-4" />
-            </Link>
-          )
-        })}
-      </div>
-    </div>
-    <div className="aspect-video overflow-hidden">
-      <Image
-        src={project.image}
-        alt={project.title}
-        width={192}
-        height={108}
-        className="w-full h-full object-cover"
-        data-ai-hint={project.aiHint}
-      />
-    </div>
+const Star = ({
+  position,
+  onMouseEnter,
+  isActive,
+}: {
+  position: ConstellationPosition;
+  onMouseEnter: () => void;
+  isActive: boolean;
+}) => (
+  <div
+    className="absolute transition-transform duration-300 ease-in-out"
+    style={{ left: position.x, top: position.y, transform: 'translate(-50%, -50%)' }}
+    onMouseEnter={onMouseEnter}
+  >
+    <div
+      className={cn(
+        "w-3 h-3 rounded-full cursor-pointer transition-all duration-300",
+        isActive
+          ? 'bg-accent shadow-[0_0_8px_2px_hsl(var(--accent))] scale-150'
+          : 'bg-white shadow-[0_0_2px_0.5px_rgba(255,255,255,0.5)] hover:scale-125',
+        position.className
+      )}
+    ></div>
   </div>
 );
 
-const Star = ({ project, position }: { project: Project; position: ConstellationPosition }) => (
-  <Tooltip delayDuration={100}>
-    <TooltipTrigger asChild>
-      <div
-        className="absolute animate-star-pulse"
-        style={{ left: position.x, top: position.y, transform: 'translate(-50%, -50%)' }}
-      >
-        <div className={cn("w-3 h-3 rounded-full bg-white shadow-[0_0_4px_1px_rgba(255,255,255,0.5)] cursor-pointer transition-all duration-300 hover:scale-125", position.className)}></div>
-      </div>
-    </TooltipTrigger>
-    <TooltipContent className="bg-transparent border-none p-0 shadow-none">
-      <ProjectTooltipContent project={project} />
-    </TooltipContent>
-  </Tooltip>
-);
-
-export default function ConstellationDisplay({ projects, name }: { projects: Project[]; name: ConstellationName }) {
+export default function ConstellationDisplay({
+  projects,
+  name,
+  onStarHover,
+  activeProject,
+}: {
+  projects: Project[];
+  name: ConstellationName;
+  onStarHover: (project: Project) => void;
+  activeProject: Project | null;
+}) {
   const { positions, edges } = predefinedConstellations[name];
-  
+
   if (!positions || !edges) {
-    return <div className="text-center text-muted-foreground">Could not find constellation data.</div>
+    return <div className="text-center text-muted-foreground">Could not find constellation data.</div>;
   }
 
   return (
-    <TooltipProvider>
-      <div className="relative w-full max-w-3xl mx-auto h-[400px] md:h-[500px]">
-        <svg className="absolute top-0 left-0 w-full h-full" style={{ zIndex: -1 }}>
-          <defs>
-            <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 0.3 }} />
-              <stop offset="100%" style={{ stopColor: 'hsl(var(--secondary))', stopOpacity: 0.3 }} />
-            </linearGradient>
-          </defs>
-          {edges.map(([startIdx, endIdx], i) => {
-             if (!positions[startIdx] || !positions[endIdx]) return null;
-             return (
-                <line
-                  key={i}
-                  x1={positions[startIdx].x}
-                  y1={positions[startIdx].y}
-                  x2={positions[endIdx].x}
-                  y2={positions[endIdx].y}
-                  stroke="url(#line-gradient)"
-                  strokeWidth="1"
-                  className="animate-line-draw"
-                  style={{ animationDelay: `${i * 0.2}s` }}
-                />
-             )
-          })}
-        </svg>
-
-        {/* Render interactive project stars */}
-        {projects.map((project, index) => {
-            if (!positions[index]) return null;
-            return <Star key={project.title} project={project} position={positions[index]} />
+    <div className="relative w-full max-w-lg mx-auto aspect-square">
+      <svg className="absolute top-0 left-0 w-full h-full" style={{ zIndex: -1 }}>
+        <defs>
+          <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 0.3 }} />
+            <stop offset="100%" style={{ stopColor: 'hsl(var(--secondary))', stopOpacity: 0.3 }} />
+          </linearGradient>
+        </defs>
+        {edges.map(([startIdx, endIdx], i) => {
+          if (!positions[startIdx] || !positions[endIdx]) return null;
+          return (
+            <line
+              key={i}
+              x1={positions[startIdx].x}
+              y1={positions[startIdx].y}
+              x2={positions[endIdx].x}
+              y2={positions[endIdx].y}
+              stroke="url(#line-gradient)"
+              strokeWidth="1"
+              className="animate-line-draw"
+              style={{ animationDelay: `${i * 0.2}s` }}
+            />
+          );
         })}
+      </svg>
 
-        {/* Render non-interactive background stars */}
-        {positions.slice(projects.length).map((position, index) => (
-          <div
-            key={`bg-star-${index}`}
-            className="absolute animate-star-pulse"
-            style={{ left: position.x, top: position.y, transform: 'translate(-50%, -50%)' }}
-          >
-            <div className={cn("w-2 h-2 rounded-full bg-white/70 shadow-[0_0_4px_1px_rgba(255,255,255,0.3)]", position.className)}></div>
-          </div>
-        ))}
-      </div>
-    </TooltipProvider>
+      {/* Render interactive project stars */}
+      {projects.map((project, index) => {
+        if (!positions[index]) return null;
+        return (
+          <Star
+            key={project.title}
+            position={positions[index]}
+            onMouseEnter={() => onStarHover(project)}
+            isActive={activeProject?.title === project.title}
+          />
+        );
+      })}
+
+      {/* Render non-interactive background stars */}
+      {positions.slice(projects.length).map((position, index) => (
+        <div
+          key={`bg-star-${index}`}
+          className="absolute animate-star-pulse"
+          style={{ left: position.x, top: position.y, transform: 'translate(-50%, -50%)' }}
+        >
+          <div className={cn("w-2 h-2 rounded-full bg-white/70 shadow-[0_0_4px_1px_rgba(255,255,255,0.3)]", position.className)}></div>
+        </div>
+      ))}
+    </div>
   );
 }
