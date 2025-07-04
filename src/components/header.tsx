@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { href: "#portfolio", label: "Work" },
   { href: "#resume", label: "Resume" },
+  { href: "#honors", label: "Honors" },
   { href: "#generator",label: "Generator" },
   { href: "#contact", label: "Contact" },
 ];
@@ -47,7 +48,7 @@ export default function Header() {
               {label}
             </Link>
           ))}
-           <Button asChild size="sm" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground font-bold">
+           <Button asChild size="sm" variant="outline" className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold">
             <a href="#contact">
               Hire Me
             </a>
@@ -74,7 +75,7 @@ export default function Header() {
                     {label}
                     </Link>
                 ))}
-                 <Button asChild size="sm" variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground font-bold">
+                 <Button asChild size="sm" variant="outline" className="w-full border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold">
                     <a href="#contact" onClick={() => setIsOpen(false)}>
                         Hire Me
                     </a>

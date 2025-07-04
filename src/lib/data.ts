@@ -237,3 +237,45 @@ export const contact = {
     ],
     email: "hello@krishsingh.dev"
 }
+
+export const honors = [
+    {
+        category: "FIRST Dean's List & Championship Awards (2024)",
+        items: [
+            "FIRST 2024 Dean’s List World Championship Finalist | Award for Leadership and Service",
+            "FIRST 2024 Dean’s List Texas State Championship Winner (04/06/2024)",
+            "Qualified for FRC World Championship",
+            "Rookie All-Star @ Texas State Championship & Katy District Event",
+            "Rookie Inspiration and Finalist Alliance @ Houston District Event",
+            "Alliance Captain & Individual Rep. at Four Official FRC Events",
+        ],
+    },
+    {
+        category: "Technology Student Association (TSA) Awards (2022-2024)",
+        items: [
+            "National Conference Engineering Design Top 12 Placement (06/26/2023)",
+            "TX-Championship 1st Place Engineering Design (04/15/2023)",
+            "National & International Qualifying Events: Engineering Design, Biotechnology Design, Software Development, Manufacturing Prototype, Board Game Design, On Demand Video Production, Technology Bowl",
+            "Texas State Championship Placements: Engineering Design (1st), Biotechnology Design (9th), Software Development(10th), Manufacturing Prototype(5th), Board Game Design(4th), On Demand Video Production(3rd), Coding(12th), Architectural Design(11th)",
+            "Space City Regionals Placements: Engineering Design (1st), Biotechnology Design (1st), Software Development(2nd), Manufacturing Prototype(1st), Board Game Design(1st), On Demand Video Production(1st), Coding(1st), Architectural Design(1st)",
+        ],
+    },
+    {
+        category: "FIRST Tech Challenge Season Awards (2021-2023)",
+        items: [
+            "Semi-Finalist at Texas State Championship Mustangs #10354",
+            "1st Place Motivate Award Houston Regional",
+            "2nd Place Inspire Award Southwest Houston League",
+            "1st Place Design Award Southwest Houston League",
+        ],
+    },
+    {
+        category: "General Academic & Leadership Honors",
+        items: [
+            "AFA CyberPatriot Platinum Windows Server Award | Nationwide Cybersecurity Competition",
+            "AP Scholar Award",
+            "Presidential Gold Seal Award",
+            "HSI-SL Invitational CTE Speaker for Incoming HS Students |  CTE Engineering and Robotics (200+ New Students Attend Annually)",
+        ],
+    },
+];
