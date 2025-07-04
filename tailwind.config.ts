@@ -103,6 +103,10 @@ export default {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0' },
         },
+        'fire-flicker': {
+          '0%, 100%': { transform: 'scaleY(1)', opacity: '1' },
+          '50%': { transform: 'scaleY(1.3)', opacity: '0.8' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -111,6 +115,7 @@ export default {
         'fade-in-up': 'fade-in-up 0.5s ease-out',
         'rocket-blast-off': 'rocket-blast-off 3s ease-in-out forwards',
         'blink': 'blink 0.75s step-end infinite',
+        'fire-flicker': 'fire-flicker 0.15s infinite ease-in-out',
       },
     },
   },

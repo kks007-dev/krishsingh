@@ -48,7 +48,16 @@ export default function Home() {
         <section id="home" className="h-screen w-full flex flex-col items-center justify-center text-center p-4 -mt-16 relative overflow-hidden">
           {animationState === 'rocket' && (
             <div className="absolute inset-0 flex items-center justify-center z-20 bg-background">
-              <Rocket className="w-24 h-24 text-accent animate-rocket-blast-off" />
+               <div className="animate-rocket-blast-off">
+                <div className="relative" style={{ transform: 'rotate(-45deg)' }}>
+                  <Rocket className="w-24 h-24 text-accent" />
+                  {/* Fire element */}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-24 h-24">
+                     <div className="w-6 h-20 mx-auto bg-gradient-to-t from-orange-500 via-yellow-400 to-transparent blur-md animate-fire-flicker" />
+                     <div className="w-4 h-16 mx-auto bg-gradient-to-t from-red-600 via-orange-500 to-transparent blur-lg absolute top-0 left-1/2 -translate-x-1/2 animate-fire-flicker" style={{animationDelay: '0.05s'}} />
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 
@@ -76,7 +85,7 @@ export default function Home() {
             </div>
           </div>
           <div className={cn(
-            "transition-opacity duration-500",
+            "w-full flex justify-center transition-opacity duration-500",
             animationState === 'done' ? 'opacity-100' : 'opacity-0'
           )}>
             <a href="#portfolio" className="flex flex-col items-center gap-2 text-accent animate-bounce pb-10">
