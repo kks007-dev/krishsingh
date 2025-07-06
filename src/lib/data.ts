@@ -2,6 +2,62 @@
 export const portfolio = {
   work: [
     {
+      title: 'NAACH Bollywood Dance',
+      description: 'Performed professionally across Texas as a dancer and later as a Production Manager and Choreographer, managing all aspects of performances and spreading Bollywood culture.',
+      image: 'https://placehold.co/600x400.png',
+      tags: ['Dance', 'Choreography', 'Performance', 'Production Management'],
+      links: [],
+      aiHint: 'bollywood dance',
+    },
+    {
+      title: 'FIRST Tech Challenge',
+      description: 'Led programming for multiple FTC teams, developing an advanced OpenCV and spline mapping system for autonomous routines. Achieved state and world-level recognition, and mentored younger teams.',
+      image: 'https://placehold.co/600x400.png',
+      tags: ['Robotics', 'Java', 'OpenCV', 'Leadership', 'Mentorship'],
+      links: [],
+      aiHint: 'robotics competition',
+    },
+    {
+      title: 'S.T.A.R.S Non-Profit',
+      description: 'Founded and led a student-run non-profit providing hands-on training in advanced technologies. Developed a full-stack online learning portal (STARS Portal) and raised over $50,000.',
+      image: 'https://placehold.co/600x400.png',
+      tags: ['Non-Profit', 'Founder', 'Full Stack', 'Machining', 'Community'],
+      links: [{ icon: 'github', url: '#' }, { icon: 'external-link', url: 'https://starsportal.org' }],
+      aiHint: 'nonprofit organization',
+    },
+    {
+      title: 'Technology Student Association',
+      description: 'Led a team in designing and developing technology products, achieving 1st place at the state level and competing internationally in multiple STEM events including Engineering Design and Software Development.',
+      image: 'https://placehold.co/600x400.png',
+      tags: ['STEM', 'Engineering Design', 'Biotechnology', 'Software Development', 'Competition'],
+      links: [],
+      aiHint: 'student competition',
+    },
+    {
+      title: 'Harmony Fusion Arts Dance',
+      description: 'Co-founded and co-captained a school fusion arts dance team, gaining system-wide support. Choreographed and performed for multicultural school events, including the first-ever Bollywood performance at the school pep rally.',
+      image: 'https://placehold.co/600x400.png',
+      tags: ['Dance', 'Leadership', 'Choreography', 'Community'],
+      links: [],
+      aiHint: 'fusion dance',
+    },
+    {
+      title: 'AFA CyberPatriot',
+      description: 'Competed in a national cybersecurity competition, specializing in Windows Server security. Individually advanced to the Platinum State Round among over 3,000 teams.',
+      image: 'https://placehold.co/600x400.png',
+      tags: ['Cybersecurity', 'Windows Server', 'Competition'],
+      links: [],
+      aiHint: 'cybersecurity competition',
+    },
+    {
+      title: 'University of Houston Internship',
+      description: 'Served as Modeling Assistant Manager and later Modeling/Printing Manager for I-TECH stem camps. Managed industrial 3D printers, prototyped items, and developed custom 3D models of amino acid compounds for AR/VR visualization.',
+      image: 'https://placehold.co/600x400.png',
+      tags: ['3D Modeling', '3D Printing', 'AR/VR', 'Biotechnology'],
+      links: [{ icon: 'external-link', url: '#' }],
+      aiHint: '3d printing',
+    },
+    {
       title: 'FIRST Robotics - Robo-Colts #9478',
       description: 'Founded and captained a community robotics team to the FIRST World Championship. Led mechanical, software, and business operations, raising over $70,000. Developed computer vision modules and swerve odometry algorithms. Merged the team with Harmony School of Innovation to expand STEM education.',
       image: 'https://placehold.co/600x400.png',
@@ -11,19 +67,11 @@ export const portfolio = {
     },
     {
       title: 'RICE University Internship',
-      description: 'Researched digital electronics and designed custom PCBs. Analyzed data to find correlations between Vitamin D and muscle tension. Collaborated with graduate students to train Python AI/ML models for image detection and experimented with 3D printing and microcontroller technology.',
+      description: 'Researched digital electronics and designed custom PCBs at a RICE University internship. Analyzed data for health correlations, collaborated on training Python AI/ML models for image detection, and experimented with 3D printing and microcontroller technology.',
       image: 'https://placehold.co/600x400.png',
       tags: ['Research', 'Electronics', 'Python', 'AI/ML', 'PCB Design'],
       links: [{ icon: 'external-link', url: '#' }],
       aiHint: 'university research',
-    },
-    {
-      title: 'University of Houston Internship',
-      description: 'Served as Modeling Assistant Manager and later Modeling/Printing Manager for I-TECH stem camps. Managed industrial 3D printers, prototyped various items, and developed custom 3D models of amino acid compounds for AR/VR visualization.',
-      image: 'https://placehold.co/600x400.png',
-      tags: ['3D Modeling', '3D Printing', 'AR/VR', 'Biotechnology'],
-      links: [{ icon: 'external-link', url: '#' }],
-      aiHint: '3d printing',
     },
     {
       title: 'VentureStarters Internship',
@@ -32,54 +80,6 @@ export const portfolio = {
       tags: ['Business', 'Startups', 'Networking', 'Venture Capital'],
       links: [{ icon: 'external-link', url: '#' }],
       aiHint: 'business startup',
-    },
-    {
-      title: 'S.T.A.R.S Non-Profit',
-      description: 'Founded and led a student-run non-profit to provide hands-on training in advanced technologies like CNC and 3D printing. Developed a full-stack online learning portal (STARS Portal) and raised over $50,000.',
-      image: 'https://placehold.co/600x400.png',
-      tags: ['Non-Profit', 'Founder', 'Full Stack', 'Machining', 'Community'],
-      links: [{ icon: 'github', url: '#' }, { icon: 'external-link', url: 'https://starsportal.org' }],
-      aiHint: 'nonprofit organization',
-    },
-    {
-      title: 'FIRST Tech Challenge',
-      description: 'Lead programmer for multiple FTC teams, developing advanced OpenCV autonomous routines. Achieved state and world-level recognition and mentored younger teams.',
-      image: 'https://placehold.co/600x400.png',
-      tags: ['Robotics', 'Java', 'OpenCV', 'Leadership', 'Mentorship'],
-      links: [],
-      aiHint: 'robotics competition',
-    },
-    {
-      title: 'Technology Student Association',
-      description: 'Led a team in designing and developing technology products, achieving 1st place at the state level and competing internationally in multiple STEM events.',
-      image: 'https://placehold.co/600x400.png',
-      tags: ['STEM', 'Engineering Design', 'Biotechnology', 'Software Development', 'Competition'],
-      links: [],
-      aiHint: 'student competition',
-    },
-    {
-      title: 'AFA CyberPatriot',
-      description: 'Competed in a national cybersecurity competition, specializing in Windows Server security. Individually advanced to the Platinum State Round among thousands of teams.',
-      image: 'https://placehold.co/600x400.png',
-      tags: ['Cybersecurity', 'Windows Server', 'Competition'],
-      links: [],
-      aiHint: 'cybersecurity competition',
-    },
-    {
-      title: 'NAACH Bollywood Dance',
-      description: 'Performed professionally across Texas, spreading Bollywood culture. Took on roles as Production Manager and Choreographer, managing all aspects of performances.',
-      image: 'https://placehold.co/600x400.png',
-      tags: ['Dance', 'Choreography', 'Performance', 'Production Management'],
-      links: [],
-      aiHint: 'bollywood dance',
-    },
-    {
-      title: 'Harmony Fusion Arts Dance',
-      description: 'Co-founded and co-captained a school fusion arts dance team, gaining system-wide support. Choreographed and performed for multicultural school events.',
-      image: 'https://placehold.co/600x400.png',
-      tags: ['Dance', 'Leadership', 'Choreography', 'Community'],
-      links: [],
-      aiHint: 'fusion dance',
     },
   ],
   passion: [
@@ -153,10 +153,52 @@ export const portfolio = {
 export const resume = {
     experience: [
         {
+            role: "Performance Team A Dancer, Choreographer",
+            company: "NAACH (Bollywood Dance Institute)",
+            duration: "Grades 7-12 | 4 hrs/wk, 52 wk/yr",
+            description: "Performed professionally around the State of Texas spreading the culture of Bollywood throughout events: Beaumont India Fest (2022), Annual Houston’s Got Bollywood (2019-Present), Urban Nutcracker (2022), Miller Outdoor Theatre Performance (2021-Present), Discovery Green Annual Gala (2023), Margaretta Business Gala (2024). As Production Manager and Choreographer (10th grade - Present): Managed costumes, performance visuals, remixes, choreographed for 8+ Bollywood Songs.",
+        },
+        {
+            role: 'Lead Programmer and Strategist',
+            company: 'FIRST Tech Challenge',
+            duration: 'Grades 7, 9, 10, 12 | 20 hrs/wk, 36 wk/yr',
+            description: 'Served as Head Programmer for HSI-SL teams (#10354, #20394, #22236). Developed an integrated OpenCV and spline mapping system for autonomous movement, ranking in the Top 50 worldwide. Achievements include multiple league placements, state championship advancement, and Inspire Award 2nd Place. Coached a new middle school team (#26710) in partnership with S.T.A.R.S.',
+        },
+        {
+            role: "Founder, President, & Machinist",
+            company: "S.T.A.R.S Non-Profit 501c3",
+            duration: "Grades 10-12 | 6 hrs/wk, 52 wk/yr",
+            description: "Founded and led a student-run organization providing hands-on training in advanced technologies (CNC, 3D printing). Developed a free, full-stack online learning portal (STARS Portal) with interactive courses, reaching a nationwide audience. Raised over $50,000 in funds for materials and equipment.",
+        },
+        {
+            role: 'Team Captain & International Competitor',
+            company: 'Technology Student Association',
+            duration: 'Grades 10-12 | 4 hrs/wk, 44 wk/yr',
+            description: 'Designed and developed over 8 technology products, achieving 1st place in Engineering Design at the Texas state competition. Competed in eighteen regional events, eight state events, and qualified for the TSA International Conference in six different competitions, including Biotechnology and Software Development.',
+        },
+        {
+            role: 'Co-Captain, Creator & Choreographer',
+            company: 'Harmony Public Schools Fusion Arts Dance',
+            duration: 'Grades 10-12 | 4 hrs/wk, 44 wk/yr',
+            description: 'Co-founded and performed with a school fusion arts dance team, gaining system-wide support. As a board member for the HSI-SL Multicultural Society, I choreographed and showcased the first-ever Bollywood performance at the school-wide pep rally.',
+        },
+        {
+            role: 'Lead Windows Server Competitor',
+            company: 'AFA CyberPatriot',
+            duration: 'Grade 10 | 4 hrs/wk, 36 wk/yr',
+            description: 'Competed in the Air Force CyberPatriot Competition, specializing in Windows Server OS security. Individually advanced to the Platinum State Round, competing against over 3,000 cybersecurity teams.',
+        },
+        {
+            role: "Intern, Modeling & Printing Manager",
+            company: "University of Houston STEM Internship",
+            duration: "Summer Grades 10-11 | 40 hrs/wk, 1 wk/yr",
+            description: "Interned as Modeling Assistant Manager and later as Modeling/Printing Manager for I-TECH stem and biotechnology camps. Managed industrial 3D printers, prototyped items, and developed custom 3D models of amino acid compounds for AR/VR visualization, experimenting with material flexibility and tensile strength.",
+        },
+        {
             role: "Founder, Team Captain & President",
             company: "FIRST Robotics - Robo-Colts #9478",
             duration: "Grades 11-12 | 35 hrs/wk, 44 wk/yr",
-            description: "Captained the team to the FIRST World Championship, leading mechanical, software, and business operations. Founded the team from my garage, raising over $70,000 through grants and business outreach. Developed computer vision modules, power hubs, and swerve odometry algorithms. Merged with Harmony School of Innovation to expand the program.",
+            description: "Founded and captained a community team to the FIRST World Championship, leading mechanical, software, and business operations. Raised over $70,000. Developed computer vision modules, power hubs, and swerve odometry algorithms. Merged the team with Harmony School of Innovation to expand STEM education.",
         },
         {
             role: "Researcher, Designer",
@@ -165,53 +207,11 @@ export const resume = {
             description: "Researched digital electronics, designed custom PCBs, and analyzed data to correlate Vitamin D deficiency with muscle tension. Collaborated with graduate students to train Python AI/ML models for image detection and experimented with 1mm 3D printing and TinyTech microcontrollers.",
         },
         {
-            role: "Intern, Modeling & Printing Manager",
-            company: "University of Houston STEM Internship",
-            duration: "Summer Grades 10-11 | 40 hrs/wk, 1 wk/yr",
-            description: "Managed industrial 3D printers for I-TECH stem and biotechnology camps. Prototyped various items and developed custom 3D models of amino acid compounds for AR/VR visualization, experimenting with material flexibility and tensile strength for protein model printing.",
-        },
-        {
             role: "Business Intern",
             company: "VentureStarters",
             duration: "Grades 11-12 | 3 hrs/wk, 9 wk/yr",
             description: "Interned at startup pitch community events, learning about pitching, funding, and the legal aspects of startups. Networked with over 200 startup professionals at technology and science events.",
         },
-        {
-            role: "Founder, President, & Machinist",
-            company: "S.T.A.R.S Non-Profit 501c3",
-            duration: "Grades 10-12 | 6 hrs/wk, 52 wk/yr",
-            description: "Founded and led a student-run organization providing hands-on training in advanced technologies (CNC, 3D printing). Developed a free, full-stack online learning portal (STARS Portal) with interactive courses. Raised over $50,000 in funds, reaching a nationwide audience.",
-        },
-        {
-            role: 'Lead Programmer and Strategist',
-            company: 'FIRST Tech Challenge',
-            duration: 'Grades 7, 9, 10, 12 | 20 hrs/wk, 36 wk/yr',
-            description: 'Served as Head Programmer for multiple teams, developing an advanced OpenCV and spline mapping system for autonomous movement that ranked in the Top 50 worldwide. Led teams to state championships and coached a new middle school team.'
-        },
-        {
-            role: 'Team Captain & International Competitor',
-            company: 'Technology Student Association',
-            duration: 'Grades 10-12 | 4 hrs/wk, 44 wk/yr',
-            description: 'Led a team in designing and developing over 8 technology products, achieving 1st place at the Texas state competition and competing internationally in six different STEM events, including Biotechnology and Software Development.'
-        },
-        {
-            role: 'Lead Windows Server Competitor',
-            company: 'AFA CyberPatriot',
-            duration: 'Grade 10 | 4 hrs/wk, 36 wk/yr',
-            description: 'Competed in a national cybersecurity competition, specializing in Windows Server security. Individually advanced to the Platinum State Round among over 3000 teams.'
-        },
-        {
-            role: 'Performance Team A Dancer, Choreographer',
-            company: 'NAACH Bollywood Dance Institute',
-            duration: 'Grades 7-12 | 4 hrs/wk, 52 wk/yr',
-            description: 'Performed professionally across Texas, spreading Bollywood culture at numerous high-profile events. Took on roles as Production Manager and Choreographer, managing all aspects of performances for over 8 songs.'
-        },
-        {
-            role: 'Co-Captain, Creator & Choreographer',
-            company: 'Harmony Public Schools Fusion Arts Dance',
-            duration: 'Grades 10-12 | 4 hrs/wk, 44 wk/yr',
-            description: 'Co-founded and performed with a school fusion arts dance team, gaining system-wide support. As a board member and choreographer for the Multicultural Society, showcased the first-ever Bollywood performance at the school-wide pep rally.'
-        }
     ],
     education: [
         {

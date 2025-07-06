@@ -18,16 +18,16 @@ const predefinedConstellations: Record<
   orion: {
     positions: [
       // Interactive Project Stars (10 total)
-      { x: '28.75%', y: '16.25%', className: 'bg-red-400' }, // 0: Betelgeuse (FIRST Robotics)
-      { x: '71.25%', y: '22.5%' },                         // 1: Bellatrix (RICE University)
-      { x: '47.5%', y: '50%' },                             // 2: Alnitak (U of H)
-      { x: '55%', y: '52.5%' },                             // 3: Alnilam (VentureStarters)
-      { x: '62.5%', y: '55%' },                             // 4: Mintaka (S.T.A.R.S)
-      { x: '43.75%', y: '85%' },                            // 5: Saiph (FIRST Tech Challenge)
-      { x: '60%', y: '81.25%', className: 'bg-blue-300' },  // 6: Rigel (TSA)
-      { x: '56.875%', y: '65%' },                           // 7: Sword (CyberPatriot)
-      { x: '85%', y: '31.25%' },                            // 8: Bow (NAACH)
-      { x: '22.5%', y: '10%' },                             // 9: Club (Harmony Dance)
+      { x: '28.75%', y: '16.25%', className: 'bg-red-400' }, // 0: Betelgeuse (NAACH)
+      { x: '71.25%', y: '22.5%' },                         // 1: Bellatrix (FTC)
+      { x: '47.5%', y: '50%' },                             // 2: Alnitak (S.T.A.R.S)
+      { x: '55%', y: '52.5%' },                             // 3: Alnilam (TSA)
+      { x: '62.5%', y: '55%' },                             // 4: Mintaka (Harmony Dance)
+      { x: '43.75%', y: '85%' },                            // 5: Saiph (CyberPatriot)
+      { x: '60%', y: '81.25%', className: 'bg-blue-300' },  // 6: Rigel (U of H)
+      { x: '56.875%', y: '65%' },                           // 7: Sword (FRC)
+      { x: '85%', y: '31.25%' },                            // 8: Bow (RICE)
+      { x: '22.5%', y: '10%' },                             // 9: Club (VentureStarters)
       
       // Non-interactive background stars
       { x: '55.625%', y: '61.25%' }, // 10: Sword BG 1
@@ -140,7 +140,7 @@ export default function ConstellationDisplay({
     <div className="relative w-full max-w-lg mx-auto aspect-square">
       {name === 'orion' && (
         <>
-          <div className="absolute top-4 left-4 text-sm text-muted-foreground font-headline">2021</div>
+          <div className="absolute top-4 left-4 text-sm text-muted-foreground font-headline">2019</div>
           <div className="absolute bottom-4 right-4 text-sm text-muted-foreground font-headline">2025 - Current</div>
         </>
       )}
