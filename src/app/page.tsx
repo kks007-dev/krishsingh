@@ -7,7 +7,7 @@ import ConstellationGenerator from '@/components/sections/constellation-generato
 import Contact from '@/components/sections/contact';
 import { ArrowDown, Rocket } from 'lucide-react';
 import Header from '@/components/header';
-import Honors from '@/components/sections/honors';
+import InAction from '@/components/sections/in-action';
 import { cn } from '@/lib/utils';
 
 export default function Home() {
@@ -91,7 +91,7 @@ export default function Home() {
         <div className="py-20" />
         <Resume />
         <div className="py-20" />
-        <Honors />
+        <InAction />
         <div className="py-20" />
         <ConstellationGenerator />
         <div className="py-20" />

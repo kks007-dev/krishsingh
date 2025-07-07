@@ -1,12 +1,12 @@
-
 'use client';
 
 import { useState } from 'react';
-import { resume } from '@/lib/data';
+import { resume, honors } from '@/lib/data';
 import { Badge } from '@/components/ui/badge';
-import { Briefcase, GraduationCap } from 'lucide-react';
+import { Briefcase, GraduationCap, Award } from 'lucide-react';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { cn } from '@/lib/utils';
 
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
@@ -71,6 +71,27 @@ export default function Resume() {
                             <Badge key={skill} variant="outline" className="text-sm font-medium border-accent/50 text-accent bg-accent/10">{skill}</Badge>
                         ))}
                     </div>
+
+                    <h3 className="text-3xl flex items-center gap-3 font-bold font-headline mt-12 mb-8 text-glow"><Award className="w-8 h-8 text-secondary" /> Honors & Awards</h3>
+                     <Accordion type="single" collapsible className="w-full">
+                        {honors.map((category, index) => (
+                            <AccordionItem key={index} value={`item-${index}`} className="border-b-white/10">
+                                <AccordionTrigger className="text-lg font-semibold hover:no-underline text-left">
+                                    <div className="flex items-center gap-3">
+                                        <Award className="w-5 h-5 text-accent" />
+                                        {category.category}
+                                    </div>
+                                </AccordionTrigger>
+                                <AccordionContent>
+                                    <ul className="list-disc pl-10 pt-2 space-y-2 text-muted-foreground text-sm">
+                                        {category.items.map((item, itemIndex) => (
+                                            <li key={itemIndex}>{item}</li>
+                                        ))}
+                                    </ul>
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
                 </div>
             </div>
         </div>
