@@ -96,7 +96,14 @@ function StarNode({
         <mesh
             ref={meshRef}
             position={position}
+            onClick={(e) => {
+                e.stopPropagation();
+                if (project) {
+                    onHover(project);
+                }
+            }}
             onPointerOver={(e) => {
+                if (e.pointerType === 'touch') return; // Disable hover for mobile
                 e.stopPropagation();
                 setHovered(true);
                 if (project) {
@@ -105,6 +112,7 @@ function StarNode({
                 }
             }}
             onPointerOut={(e) => {
+                if (e.pointerType === 'touch') return; // Disable hover for mobile
                 setHovered(false);
                 if (project) {
                     document.body.style.cursor = 'auto';
