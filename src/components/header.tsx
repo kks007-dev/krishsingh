@@ -9,9 +9,6 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { href: "#portfolio", label: "Work" },
   { href: "#resume", label: "Resume" },
-  { href: "#in-action", label: "In-Action" },
-  { href: "#generator",label: "Generator" },
-  { href: "#contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -48,7 +45,7 @@ export default function Header() {
               {label}
             </Link>
           ))}
-           <Button asChild size="sm" variant="outline" className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold">
+          <Button asChild size="sm" variant="outline" className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold">
             <a href="#contact">
               Hire Me
             </a>
@@ -64,23 +61,23 @@ export default function Header() {
       </div>
       {isOpen && (
         <div className="md:hidden bg-background/95 border-t border-border">
-            <nav className="flex flex-col items-start gap-4 p-4">
-                {navLinks.map(({ href, label }) => (
-                    <Link
-                    key={label}
-                    href={href}
-                    className="w-full font-medium text-foreground/80 transition-colors hover:text-accent"
-                    onClick={() => setIsOpen(false)}
-                    >
-                    {label}
-                    </Link>
-                ))}
-                 <Button asChild size="sm" variant="outline" className="w-full border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold">
-                    <a href="#contact" onClick={() => setIsOpen(false)}>
-                        Hire Me
-                    </a>
-                </Button>
-            </nav>
+          <nav className="flex flex-col items-start gap-4 p-4">
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={label}
+                href={href}
+                className="w-full font-medium text-foreground/80 transition-colors hover:text-accent"
+                onClick={() => setIsOpen(false)}
+              >
+                {label}
+              </Link>
+            ))}
+            <Button asChild size="sm" variant="outline" className="w-full border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold">
+              <a href="#contact" onClick={() => setIsOpen(false)}>
+                Hire Me
+              </a>
+            </Button>
+          </nav>
         </div>
       )}
     </header>

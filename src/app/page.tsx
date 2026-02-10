@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Portfolio from '@/components/sections/portfolio';
 import Resume from '@/components/sections/resume';
-import ConstellationGenerator from '@/components/sections/constellation-generator';
+
 import Contact from '@/components/sections/contact';
 import { ArrowDown, Rocket } from 'lucide-react';
 import Header from '@/components/header';
@@ -11,18 +11,11 @@ import InAction from '@/components/sections/in-action';
 import { cn } from '@/lib/utils';
 
 export default function Home() {
-  const [animationState, setAnimationState] = useState('rocket'); // 'rocket', 'typing', 'done'
+  const [animationState, setAnimationState] = useState('typing'); // 'typing', 'done'
   const [typedName, setTypedName] = useState('');
   const fullName = 'Krish Singh';
 
-  useEffect(() => {
-    // Rocket animation ends, start typing
-    const rocketTimer = setTimeout(() => {
-      setAnimationState('typing');
-    }, 2800); // Animation is 3s, start typing just before it's gone
 
-    return () => clearTimeout(rocketTimer);
-  }, []);
 
   useEffect(() => {
     if (animationState === 'typing') {
@@ -47,18 +40,7 @@ export default function Home() {
       <main className="flex-1">
         <section id="home" className="h-[calc(100vh-4rem)] w-full flex flex-col items-center justify-center text-center p-4 relative overflow-hidden">
           {animationState === 'rocket' && (
-            <div className="absolute inset-0 flex items-center justify-center z-20 bg-background">
-               <div className="animate-rocket-blast-off">
-                <div className="relative">
-                  <Rocket className="w-24 h-24 text-accent -rotate-45" />
-                  {/* Fire element */}
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-12 -translate-y-4">
-                     <div className="w-6 h-20 mx-auto bg-gradient-to-t from-orange-500 via-yellow-400 to-transparent blur-md animate-fire-flicker" />
-                     <div className="w-4 h-16 mx-auto bg-gradient-to-t from-red-600 via-orange-500 to-transparent blur-lg absolute top-0 left-1/2 -translate-x-1/2 animate-fire-flicker" style={{animationDelay: '0.05s'}} />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div className="hidden" />
           )}
 
           <div className="flex-grow flex items-center justify-center">
@@ -90,12 +72,25 @@ export default function Home() {
         <Portfolio />
         <div className="py-20" />
         <Resume />
-        <div className="py-20" />
+        {/* <div className="py-20" />
         <InAction />
-        <div className="py-20" />
-        <ConstellationGenerator />
-        <div className="py-20" />
+        <div className="py-20" /> */}
+
         <Contact />
+
+        {/* Secret Trigger */}
+        <div className="fixed bottom-4 right-4 z-50">
+          <a href="/secret" className="block text-purple-500/50 hover:text-purple-400 transition-colors p-2" aria-label="Secret">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-4 h-4"
+            >
+              <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+            </svg>
+          </a>
+        </div>
       </main>
     </div>
   );
