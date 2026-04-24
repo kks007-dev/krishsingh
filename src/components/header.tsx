@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "#portfolio", label: "Work" },
-  { href: "#resume", label: "Resume" },
+  { href: "/#portfolio", label: "Work" },
+  { href: "/#resume", label: "Resume" },
+  { href: "/in-action", label: "In Action" },
 ];
 
 export default function Header() {
