@@ -27,17 +27,8 @@ export default function Resume() {
     const education = [...resume.education]; // Education order seems fine (Newest first in data.ts? No, data.ts usually has oldest first? Let's check.)
     // data.ts education: [TAMU 2025-2029 (Future/Current), High School 2021-2025]. This is Newest First. Good.
 
-    // Experience in data.ts is Oldest First. So reverse it.
-    // Manually add the AI Automation Engineer role to sync with constellation
-    const experience = [
-        {
-            role: "AI Automation Engineer",
-            company: "Chai",
-            duration: "Present",
-            description: "Developing AI automation solutions and engineering workflows at Chai, leveraging advanced AI technologies to optimize business processes."
-        },
-        ...[...resume.experience].reverse()
-    ];
+    // Experience in data.ts is Oldest First (Boeing/Velostics/Chai now included). Reverse for newest-first display.
+    const experience = [...resume.experience].reverse();
 
     const handleDownloadResume = () => {
         window.open('https://drive.google.com/file/d/13AJTKKQ0BEZURug2vcyCAF3XAzwiufBJ/view?usp=sharing', '_blank');

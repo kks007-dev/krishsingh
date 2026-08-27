@@ -24,14 +24,29 @@ import oasisImg from './content/Oasis.png';
 import chaiImg from './content/Chai.png';
 import seggieImg from './content/Seggie.png';
 import savelImg from './content/savel.png';
+import edenImg from './content/EDEN.jpg';
 
 export const portfolio = {
   work: [
     {
+      title: 'Hardware Quality Engineering Intern',
+      description: 'Architected a cloud platform automating quality metrics across 100,000+ tables at Boeing, cutting analysis time by 75%. Unified quality workflows across 60+ programs for 30+ engineers, plus a local AI-native RAG system for natural-language search over quality data.',
+      tags: ['Boeing', 'RAG', 'Data Engineering', 'Aerospace'],
+      links: [],
+      aiHint: 'aerospace quality engineering',
+    },
+    {
+      title: 'AI Engineer',
+      description: 'Architected the Velostics Engine, an agentic platform replacing manual entry for 300,000+ annual shipments at Velostics — a 30% efficiency gain for 7-figure enterprise logistics clients.',
+      tags: ['Velostics', 'Agentic AI', 'Logistics'],
+      links: [],
+      aiHint: 'logistics ai agents',
+    },
+    {
       title: 'AI Automation Engineer',
-      description: 'Developing AI automation solutions and engineering workflows at Chai.',
+      description: 'Built voice, chat, and browser AI agents at Chai, integrated with ERP, API, and portal systems for 6-figure clients. Engineered high-concurrency pipelines handling 500+ weekly calls, using vector databases for context retention.',
       image: chaiImg,
-      tags: ['AI', 'Automation', 'Engineering', 'Chai'],
+      tags: ['AI Agents', 'LangChain', 'Vector DB', 'Chai'],
       links: [{ icon: 'external-link', url: 'https://www.chaione.com/' }],
       aiHint: 'chai automation',
     },
@@ -101,9 +116,9 @@ export const portfolio = {
     },
     {
       title: 'Merch',
-      description: 'Launched a user-powered freebie app w/ Javascript to 4000+ users in 90 days. Designed a visually engaging, responsive UI with NextJs & Tailwind CSS, targeted at marketers & student ambassadors. Developed a dynamic marketeering form with reCAPTCHA v3 and Supabase.',
+      description: 'Launched a user-powered freebie app to 5,000+ users with 200,000+ delivered notifications and 1,000 peak concurrent users, powered by Supabase (SQL). Reached 8+ colleges, 5 small businesses, and 300,000+ freebie views nationwide.',
       image: merchImg,
-      tags: ['Next.js', 'React Native', 'Supabase', 'Gemini AI', 'Mobile'],
+      tags: ['Next.js', 'Tailwind CSS', 'Supabase', 'Mobile'],
       links: [],
       aiHint: 'merch app',
     },
@@ -125,6 +140,14 @@ export const portfolio = {
     },
   ],
   passion: [
+    {
+      title: 'EDEN',
+      description: 'Co-developing a humanoid robot prototype — ROS 2 with an on-board NVIDIA Jetson Orin Nano for motor control. A YOLO + LLaMA 3.2 (VLM) cognitive layer handles object detection and frame understanding, validated against ROS MCP and TurtleSim before hardware deployment.',
+      image: edenImg,
+      tags: ['ROS 2', 'Python', 'C++', 'NVIDIA Jetson Orin', 'LLaMA 3.2'],
+      links: [],
+      aiHint: 'humanoid robot',
+    },
     {
       title: 'B.O.L.L.Y',
       description: 'Adapted the Stanford E.D.G.E model to generate music-synchronized choreography using PyTorch and Jukebox embeddings.',
@@ -167,9 +190,9 @@ export const portfolio = {
     },
     {
       title: 'I.D.R.O.N',
-      description: 'A solar-powered household radiation detector featuring advanced Geiger circuit technology.',
+      description: 'A portable, solar-powered radiation detector using expanded Geiger circuit technology and ESP32 boards. Full end-to-end hardware build — PCB design, CNC machining, 3D modeling/printing — with optimized C firmware. 1st Place, Texas TSA Conference 2023.',
       image: idronImg,
-      tags: ['Hardware', 'Electronics', 'Geiger Circuit'],
+      tags: ['ESP32', 'PCB Design', 'CNC Milling', 'C', 'Geiger Circuit'],
       links: [{ icon: 'github', url: '#' }],
       aiHint: 'radiation detector',
     },
@@ -215,11 +238,11 @@ export const portfolio = {
     },
     {
       title: 'Seggie',
-      description: 'An innovative project focusing on segmentation and analysis.',
+      description: 'AI vegetarian meal planner — generates budget- and cooking-intensity-aware meal plans with grocery lists and cost estimates. Available as a web app and a mobile app.',
       image: seggieImg,
-      tags: ['Project', 'Innovation'],
-      links: [],
-      aiHint: 'seggie',
+      tags: ['Next.js', 'Mobile', 'Gemini AI', 'Meal Planning'],
+      links: [{ icon: 'github', url: 'https://github.com/kks007-dev/singhs-ai-veggie' }],
+      aiHint: 'seggie meal planner',
     },
     {
       title: 'Savel',
@@ -283,10 +306,10 @@ export const resume = {
       description: "Founded and captained a community team to the FIRST World Championship, leading mechanical, software, and business operations. Raised over $70,000. Developed computer vision modules, power hubs, and swerve odometry algorithms. Merged the team with Harmony School of Innovation to expand STEM education.",
     },
     {
-      role: "Researcher, Designer",
-      company: "RICE University PATHS-UP Internship",
-      duration: "Summer Grade 11 | 40 hrs/wk, 3 wk/yr",
-      description: "Researched digital electronics, designed custom PCBs, and analyzed data to correlate Vitamin D deficiency with muscle tension. Collaborated with graduate students to train Python AI/ML models for image detection and experimented with 1mm 3D printing and TinyTech microcontrollers.",
+      role: "Embedded Systems Research Intern",
+      company: "Rice University (PATHS-UP Program)",
+      duration: "Jun. 2024 - Aug. 2024 | Summer Grade 11, 40 hrs/wk",
+      description: "Engineered a wearable health microcontroller device using PCB design and C++, while developing OpenCV pipelines and a machine learning prediction model correlating physiological signals with early detection for Vitamin D deficiency. Collaborated with graduate students to train Python AI/ML models for image detection.",
     },
     {
       role: "Business Intern",
@@ -294,12 +317,36 @@ export const resume = {
       duration: "Grades 11-12 | 3 hrs/wk, 9 wk/yr",
       description: "Interned at startup pitch community events, learning about pitching, funding, and the legal aspects of startups. Networked with over 200 startup professionals at technology and science events.",
     },
+    {
+      role: "Co-Founder & Lead Developer",
+      company: "Merch",
+      duration: "Jun. 2025 - Present | Full-time",
+      description: "Launched a user-powered freebie app to 5,000+ users with 200,000+ delivered notifications and 1,000 peak concurrent users, powered by Supabase (SQL). Reached 8+ colleges, 5 small businesses, and 300,000+ freebie views nationwide.",
+    },
+    {
+      role: "AI Automation Engineer",
+      company: "Chai",
+      duration: "Jun. 2025 - May 2026 | Full-time",
+      description: "Built voice, chat, and browser AI agents integrated with ERP, API, and portal systems for 6-figure clients. Engineered high-concurrency pipelines (LangChain, Node.js, n8n) handling 500+ weekly calls, using vector databases for context retention.",
+    },
+    {
+      role: "AI Engineer",
+      company: "Velostics",
+      duration: "Apr. 2026 - Present | Full-time",
+      description: "Architected the Velostics Engine, an agentic platform replacing manual entry for 300,000+ annual shipments — a 30% efficiency gain for 7-figure enterprise logistics clients.",
+    },
+    {
+      role: "Hardware Quality Engineering Intern",
+      company: "Boeing",
+      duration: "Jun. 2026 - Present | Full-time",
+      description: "Architected a cloud platform automating quality metrics across 100,000+ tables, cutting analysis time 75%. Unified quality workflows across 60+ programs used daily by 30+ engineers, plus a local AI-native RAG system for natural-language search over quality data.",
+    },
   ],
   education: [
     {
       degree: "B.S. in Computer Engineering",
       institution: "Texas A&M University, College Station, TX",
-      duration: "Aug. 2025 - May 2029",
+      duration: "Aug. 2025 - May 2028 | Major GPA: 3.5 / 4.0 | Coursework: Calculus I, II, III, Computer Architecture, Data Structures & Algorithms, Digital Systems Design | Member: Sounding Rocketry Team (Avionics), TAMU Turtle Robotics, IEEE, Aggie Coding Club, Aggie AI Society, MTT-S",
     },
     {
       degree: "High School Diploma",
@@ -308,7 +355,9 @@ export const resume = {
     }
   ],
   skills: [
-    "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "GraphQL", "PostgreSQL", "MongoDB", "Docker", "Git", "Figma", "CI/CD", "Python", "Java", "CAD", "3D Printing", "ACU Certification", "Python Certification", "CSS", "Java Certification", "JavaScript Certification", "C++", "AI Fundamentals Certification", "HTML Certification", "Flutter"
+    "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "GraphQL", "PostgreSQL", "MongoDB", "Docker", "Git", "Figma", "CI/CD", "Python", "Java", "CAD", "3D Printing", "ACU Certification", "Python Certification", "CSS", "Java Certification", "JavaScript Certification", "C++", "AI Fundamentals Certification", "HTML Certification", "Flutter",
+    "ROS 2", "PyTorch", "TensorFlow", "OpenCV", "YOLO", "LangChain", "RAG", "Vector Databases", "Supabase", "n8n", "Gemini API", "PCB Design", "ESP32", "SQL", "REST APIs", "C",
+    "ROS MCP", "TurtleSim", "Gazebo", "PID Control", "Odometry", "Swerve Kinematics", "G-Code", "NVIDIA Jetson Orin Nano", "Raspberry Pi", "Google Coral", "I2C/SPI/UART", "Fusion360", "SolidWorks", "LLaMA 3.2 (VLM)", "Claude Code", "Codex", "Cursor", "AWS", "GCC", "OCI"
   ]
 }
 

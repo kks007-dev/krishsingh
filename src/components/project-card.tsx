@@ -39,16 +39,18 @@ export default function ProjectCard({ project }: { project: Project | null }) {
           })}
         </div>
       </div>
-      <div className="aspect-video overflow-hidden">
-        <Image
-          src={project.image}
-          alt={project.title}
-          width={450}
-          height={253}
-          className="w-full h-full object-cover"
-          data-ai-hint={project.aiHint}
-        />
-      </div>
+      {project.image && (
+        <div className="aspect-video overflow-hidden">
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={450}
+            height={253}
+            className="w-full h-full object-cover"
+            data-ai-hint={project.aiHint}
+          />
+        </div>
+      )}
     </div>
   );
 }

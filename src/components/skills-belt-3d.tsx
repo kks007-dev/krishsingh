@@ -25,6 +25,16 @@ const skills = [
     { name: "HTML", slug: "html5", color: "#E34F26" },
     { name: "C++", slug: "cplusplus", color: "#00599C" },
     { name: "Flutter", slug: "flutter", color: "#02569B" },
+    { name: "ROS", slug: "ros", color: "#22314E" },
+    { name: "PyTorch", slug: "pytorch", color: "#EE4C2C" },
+    { name: "TensorFlow", slug: "tensorflow", color: "#FF6F00" },
+    { name: "OpenCV", slug: "opencv", color: "#5C3EE8" },
+    { name: "LangChain", slug: "langchain", color: "#1C3C3C" },
+    { name: "Supabase", slug: "supabase", color: "#3ECF8E" },
+    { name: "n8n", slug: "n8n", color: "#EA4B71" },
+    { name: "AWS", slug: "amazonaws", color: "#FF9900" },
+    { name: "Raspberry Pi", slug: "raspberrypi", color: "#A22846" },
+    { name: "ESP32", slug: "espressif", color: "#E7352C" },
 ];
 
 function SkillItem({ item, index, total }: { item: any, index: number, total: number }) {

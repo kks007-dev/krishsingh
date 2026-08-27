@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/#portfolio", label: "Work" },
   { href: "/#resume", label: "Resume" },
   { href: "/in-action", label: "In Action" },
+  { href: "/my-graph", label: "My Graph" },
 ];
 
 export default function Header() {
