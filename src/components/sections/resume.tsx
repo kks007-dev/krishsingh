@@ -30,23 +30,26 @@ export default function Resume() {
     // Experience in data.ts is Oldest First (Boeing/Velostics/Chai now included). Reverse for newest-first display.
     const experience = [...resume.experience].reverse();
 
-    const handleDownloadResume = () => {
-        window.open('https://drive.google.com/file/d/13AJTKKQ0BEZURug2vcyCAF3XAzwiufBJ/view?usp=sharing', '_blank');
-    };
-
     return (
         <section id="resume" className="py-20 px-4 container">
             <SectionTitle>My Professional Journey</SectionTitle>
 
             <div className="flex justify-center mb-12">
                 <Button
-                    onClick={handleDownloadResume}
+                    asChild
                     variant="outline"
                     size="lg"
                     className="gap-2 border-blue-500/50 text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-300 backdrop-blur-sm bg-black/20 rounded-full px-8"
                 >
-                    <Download className="w-4 h-4" />
-                    Resume
+                    {/* Real PDF, generated from this same resume data via
+                        scripts/generate-resume.mjs (moderncv LaTeX -> pdf via
+                        tectonic) -- not the old Google Drive link. `download`
+                        makes the browser save it directly instead of
+                        navigating to it. */}
+                    <a href="/resume.pdf" download="Krish_Singh_Resume.pdf">
+                        <Download className="w-4 h-4" />
+                        Resume
+                    </a>
                 </Button>
             </div>
 

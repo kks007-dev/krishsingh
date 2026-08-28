@@ -1,0 +1,170 @@
+%-------------------------
+% Resume in Latex
+% Author : Krish Singh (Hardware/Robotics Focus)
+% License : MIT
+%------------------------
+\documentclass[letterpaper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+%-------------------------
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+%-------------------------------------------
+\begin{document}
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Krish Singh} \\ \vspace{6pt}
+    \small \faPhone\ 346-399-2041 \hspace{1pt} $|$ \hspace{1pt}
+    \href{mailto:krishksingh07@gmail.com}{\faEnvelope\ \underline{krishksingh07@gmail.com}} \hspace{1pt} $|$ \hspace{1pt}
+    \href{https://www.linkedin.com/in/krish-singh2007/}{\faLinkedin\ \underline{LinkedIn}} \hspace{1pt} $|$ \hspace{1pt}
+    \href{https://github.com/kks007-dev}{\faGithub\ \underline{GitHub}} \hspace{1pt} $|$ \hspace{1pt}
+    \href{https://krishsingh.vercel.app/}{\faGlobe\ \underline{Portfolio}}
+    \vspace{-8pt}
+\end{center}
+%-----------EDUCATION-----------
+\section{EDUCATION}
+  \resumeSubHeadingListStart
+    \item
+    \begin{tabular*}{0.98\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{Texas A\&M University} $|$ B.S. in Computer Engineering & \textbf{May 2028} $|$ \textbf{Major GPA: 3.5 / 4.0} \\
+    \end{tabular*}
+    \vspace{-4pt}
+    \begin{itemize}[leftmargin=0in, label={}]
+        \item \small \textbf{Relevant Coursework}: Calculus I, II, III, Computer Architecture, Data Structures \& Algorithms, Digital Systems Design
+        \item \small \textbf{Member}: Sounding Rocketry Team (Avionics), TAMU Turtle Robotics, IEEE, Aggie Coding Club, Aggie AI Society, MTT-S
+    \end{itemize}
+  \resumeSubHeadingListEnd
+  \vspace{-14pt}
+%-----------EXPERIENCE-----------
+\section{EXPERIENCE}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Boeing}{Jun. 2026 -- Present}
+      {Hardware Quality Engineering Intern}{Houston, TX}
+      \resumeItemListStart
+        \resumeItem{Architected and deployed a \textbf{cloud-based system} that modernized legacy quality systems, automating metric calculations across \textbf{5000+} production data tables, cutting manual analysis time by \textbf{75\%}.}
+        \resumeItem{Drove program-wide adoption across \textbf{60+ programs}, capturing ad-hoc quality information flows into a single system used daily by \textbf{50+ quality engineers and specialists across various locations}.}
+        \resumeItem{Designed and built a \textbf{local AI RAG and memory system} enabling natural-language search answering in seconds.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Velostics}{Apr. 2026 -- Present}
+      {AI Engineer}{Houston, TX}
+      \resumeItemListStart
+        \resumeItem{Architected the \textbf{Velostics Engine}, an agentic automation logistics platform  housing email, booking, voice, and browser agents that replaces manual data-entry workflows, supporting \textbf{100,000+} shipments annually for enterprise clients.}
+        \resumeItem{Delivered a \textbf{40\% increase in appoitment booking efficiency} w/ custom LangChain architecture and deterministic workflow creation on Cloudflare saving \textbf{7-figure clients} an estimated \textbf{320+ hours a week} in manual processing loads.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Chai}{Jun. 2025 -- May 2026}
+      {AI Automation Engineer}{Houston, TX}
+      \resumeItemListStart
+        \resumeItem{Developed context retentive voice and browser automation agents with access to database, API, and ERP systems.}
+        \resumeItem{Pioneered the transition to agentic development, serving \textbf{6-figure customers} and handling high-volume data loads.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Rice University}{Jun. 2024 -- Aug. 2024}
+      {Embedded Systems Research Intern}{Houston, TX}
+      \resumeItemListStart
+        \resumeItem{Engineered a wearable health microcontroller device using \textbf{PCB design} and \textbf{C++} while developing \textbf{OpenCV} pipelines and a machine learning prediction model correlating physiological signals with early detection for Vitamin D deficiency }
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+%-----------PROJECTS-----------
+\section{PROJECTS}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{EDEN} $|$ \emph{ROS 2, Python, C++, NVIDIA Jetson Orin, LLaMA 3.2}}{Aug. 2025 -- Present}
+          \resumeItemListStart
+            \resumeItem{Co-developed a humanoid robot prototype, with \textbf{ROS 2} and on-board ML (NVIDIA Orin Nano), for motor control.}
+            \resumeItem{Implemented \textbf{YOLO} for object detection and \textbf{LLaMA 3.2 (VLM)} for frame understanding and decision-making, creating a cognitive layer that lets the LLM's reasoning directly drive action quality.}
+            \resumeItem{Utilized \textbf{ROS MCP} and \textbf{TurtleSim} to validate kinematic algorithms and control logic before hardware deployment.}
+          \resumeItemListEnd
+          \vspace{-13pt}
+      \resumeProjectHeading
+          {\textbf{I.D.R.O.N} $|$ \emph{C++, PCB Design, ESP32, Geiger Circuit Technology, CNC Milling}}{Jan. 2023 -- Apr. 2023}
+          \resumeItemListStart
+            \resumeItem{Designed a portable solar-powered radiation detector using expanded Geiger circuit technology and \textbf{ESP32} boards.}
+            \resumeItem{Executed end-to-end hardware development including \textbf{PCB design}, \textbf{CNC machining}, and \textbf{3D modeling/printing}; developed optimized \textbf{C firmware} for low-latency sensor processing, securing \textbf{1st Place} at Texas TSA Conference 2023.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+\vspace{-15pt}
+%-----------LEADERSHIP-----------
+\section{LEADERSHIP}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Robo-Colts \#9478}{Jun. 2023 -- May 2025}
+      {Founder, Team Captain \& Technical Lead}{Houston, TX}
+      \resumeItemListStart
+        \resumeItem{Spearheaded all operational, technical, and business functions for a community FRC robotics team built from the ground up; directed founding and secured over \$70,000 for engineering design and programming human-sized robots.}
+        \resumeItem{Programmed real-time autonomous path adjustment and context learning using \textbf{PID and computer vision}.}
+
+      \resumeItemListEnd
+    \resumeSubheading
+      {Merch}{Jun. 2025 -- Present}
+      {Co-Founder \& Lead Developer}{Houston, TX}
+      \resumeItemListStart
+        \resumeItem{Launched a user-powered freebie app to 5,000+ users with \textbf{200,000+} delivered notifications and 1000 peak concurrent users, powered by \textbf{Supabase (SQL)}, reaching 8+ colleges, 5 small businesses, and 300,000+ freebie views nationwide.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Robotics \& Controls}{: ROS 2, ROS MCP, TurtleSim, Gazebo, PID Control, Odometry, Swerve Kinematics, G-Code, NVIDIA Jetson Orin Nano, Raspberry Pi, ESP32, Google Coral, PCB Design, I2C/SPI/UART, Fusion360, SolidWorks} \\
+     \textbf{AI \& Computer Vision}{: Claude Code, Codex, Cursor, PyTorch, TensorFlow, OpenCV, YOLO, LLaMA 3.2 (VLM)} \\
+     \textbf{Languages \& Frameworks}{: C++, Python, C, JavaScript/TypeScript, Java, AWS, GCC, OCI, SQL, Git, Node.js}
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+\end{document}
